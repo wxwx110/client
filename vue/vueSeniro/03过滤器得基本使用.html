@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg | msgFormat('[替换aa]',123)|filter2}}</p>
+
+      
+    </div>
+    <script>
+         //全局过滤器语法
+        //Vue.filter('过滤器得名称',function(){})
+        //过滤器 function中，第一个参数永远都是过滤器管道符前需要展示得数据
+        //过滤器调用语法
+        //{{  name | 过滤器名称}}
+        Vue.filter('msgFormat',function(msg,arg,arg2){
+            return arg2+msg.replace(/aa/g,arg);
+        })
+        Vue.filter('filter2',function(msg){
+            return msg+'这事第二filter'
+        })
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:"aabbccddeeffaabbccddeeff"
+            },
+  
+            
+
+        });
+    </script>
+</body>
+</html>

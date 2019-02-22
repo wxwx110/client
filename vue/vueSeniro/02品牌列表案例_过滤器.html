@@ -9,8 +9,7 @@
     <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
 </head>
 <body>
-    <div id="app">
-       
+    <div id="app">       
        <div class="panel panel-primary">
              <div class="panel-heading">
                    <h3 class="panel-title">添加品牌</h3>
@@ -30,8 +29,7 @@
                     </label>
 
              </div>
-       </div>
-       
+       </div>     
 
 
        <table class="table table-hover table-striped table-bordered">
@@ -47,16 +45,35 @@
                <tr v-for="(item,index) in search(keyWord)" :key="item.id">
                    <td>{{item.id}}</td>
                    <td v-text="item.name"></td>
-                   <td>{{item.crtTime}}</td>
+                   
+                   <td>{{item.crtTime | dateFormat()}}</td>
                    <td> <a href="" @click.prevent="delModel(item.id)">删除</a> </td>
                </tr>
            </tbody>
        </table>
-       
+    </div>
 
-      
+    <div id="app2">
+        {{currentData |dateFormat}}
     </div>
     <script>
+       
+       //全局过滤器，可以在不同的VUE对象之间共享
+        Vue.filter('dateFormat',function(dataStr,pattern=''){
+            let dt=new Date(dataStr);
+            let y=dt.getFullYear();
+            let m=(dt.getMonth()+1).toString().padStart(2,'0');
+            let d=dt.getDate();
+           
+            if(pattern.toLowerCase() ==='yyyy-mm-dd'){
+                return `${y}-${m}-${d}`;
+            }else{
+                let hh=dt.getHours();
+                let mm=dt.getMinutes();
+                let ss=dt.getSeconds();
+                return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+            }
+        })
         var vm=new Vue({
             el:'#app',
             data:{
@@ -111,9 +128,34 @@
 
                 }
             }
-  
-            
+        });
 
+        var vm2=new Vue({
+            el:'#app2',
+            data:{
+                currentData:new Date()
+            },
+            filters:{
+                //私有过滤器
+                //过滤器调用就近原则，优先使用私有过滤器
+                dateFormat:function(dataStr,pattern=''){
+                    let dt=new Date(dataStr);
+                    let y=dt.getFullYear();
+                    //padStart,padEnd，以某一个字符填充字符串
+                    let m=(dt.getMonth()+1).toString().padStart(2,'0');
+                    let d=dt.getDate();
+                
+                    if(pattern.toLowerCase() ==='yyyy-mm-dd'){
+                        return `${y}-${m}-${d}`;
+                    }else{
+                        let hh=dt.getHours();
+                        let mm=dt.getMinutes();
+                        let ss=dt.getSeconds();
+                        return `私有的${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+                    }
+                }
+
+            }
         });
     </script>
 </body>
