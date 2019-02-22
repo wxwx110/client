@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    [v-cloak]{
+        display: none;
+    }
+    </style>
+
+
+</head>
+<body>
+    v-cloak 申明样式解决数据加载慢造成的闪烁问题
+    <div id="app">
+        
+        <p v-cloak >aaa {{msg}} bbb</p>
+        v-text默认没有闪烁问题
+        v-text会覆盖元素中原本的内容
+        插值表达式只会覆盖表达式部分的内容
+        <h4 v-text="msg">aaa bbb</h4>
+        <hr>
+        <div>
+            {{msg2}}
+        </div>
+        <div v-text="msg2"></div>
+        v-html可以将文本渲染成HTML标签
+        <div v-html="msg2"></div>
+        <hr>
+        v-band 是vue提供用于绑定属性的指令
+        <input type="button" value="按钮title" title='mytitle'>
+        <input type="button" value="按钮v-bind:title" v-bind:title='mytitle'>
+        <input type="button" value="按钮v-bind:title=mytitle +'123'" v-bind:title="mytitle +'123'">
+        <input type="button" value="简写:title" :title="mytitle +'123'">
+        <hr>
+
+        v-on 用于绑定事件，简写@
+
+        <input type="button" value="点击" :title="mytitle +'123'" v-on:click="show">
+        <input type="button" value="点击" :title="mytitle +'123'" @click="show">
+    </div>
+
+    <script src="./lib/vue-2.4.0.js"></script>
+    <script>
+     
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:123,
+                msg2:'<h1>aaaaa</h1>',
+                mytitle:'这事一个自己定义的title'
+            },
+            methods:{
+                show:function(){
+                    alert('hello');
+                }
+            }
+
+        
+
+        })
+    </script>
+    
+</body>
+</html>

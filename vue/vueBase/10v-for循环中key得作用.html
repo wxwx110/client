@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            id<input type="text" v-model="id">
+            name <input type="text"v-model="name">
+            <input type="button" value="add" @click="add">
+        </div>
+       
+        v-for 循环时KEY只能使用number/string得属性<br>
+        key在指定时必须使用v-bind指令进行绑定<br>
+        由于VUE为保证性能会重用DOM元素如在循环列表中不指定key<br>
+        会导致HTML元素被复用，将无法获得正确的值<br>
+        如果需要对列表数据进行操作，必须指定KEY
+
+      <p v-for="item in list" :key="item.id">
+          <input type="checkbox">
+         {{item.id}} ----{{item.name}}
+      </p>
+
+      
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                id:'',
+                name:'',
+                list:[
+                    {id:1,name:'a'},
+                    {id:2,name:'b'},
+                    {id:3,name:'c'},
+                    {id:4,name:'d'}
+               ],
+            },
+            methods:{
+                add(){
+                   // this.list.push({id:this.id,name:this.name});
+                   this.list.unshift({id:this.id,name:this.name});
+                }
+            }
+  
+            
+
+        });
+    </script>
+</body>
+</html>

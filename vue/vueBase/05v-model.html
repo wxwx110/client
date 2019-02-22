@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        
+       绑定值 v-band实现m>v的单项绑定 <br>
+       <input type="text" :value="msg">
+       <br>
+       模型绑定v-model实现 m<>v的双向绑定 只能运用再表单元素
+       <br>
+       <input type="text" v-model:value="msg">
+
+
+      
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:"大家都是好学生"
+            },
+  
+            
+
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        .inner{
+            height: 150px;
+            background-color: darkcyan;
+            }
+        。outer {
+            height: 170px;
+            background-color:darkgray;
+            }
+    </style>
+</head>
+<body>
+    <div id="app">
+       <div class="inner" @click="divClick">
+           <input type="button" value="clickME" @click="btnClick">
+            <hr>
+           @click.stop阻止事件的冒泡
+           <input type="button" value="clickME.stop" @click.stop="btnClick">
+       </div>
+
+       <a href="http://www.baidu.com" @click="linkClick">baidu </a>
+       <br>
+       <a href="http://www.baidu.com" @click.prevent="linkClick">baidu.privent阻止默认行为</a>
+
+       <hr>
+       @click.capture使用捕获方式执行事件
+       <div class="inner" @click.capture="divClick">
+            <input type="button" value="clickME" @click="btnClick">           
+         
+        </div>
+
+        @click.self 只有点击元素本身时才触发，不捕获，也不冒泡
+        <div class="inner" @click.self="divClick">
+             <input type="button" value="clickME" @click="btnClick">           
+          
+         </div>
+
+         <hr>
+         @click.prevent.once 只触发一次
+         <a href="http://www.baidu.com" @click.prevent.once="linkClick">baidu.privent阻止默认行为</a>
+
+          <hr>
+          .self .stop的区别
+
+          .setf 只阻止当前元素的冒泡不阻止事件向外的传递冒泡
+          .stop 阻止事件的传递
+
+          <div class="outer" @click="divClick2" >
+                <div class="inner" @click.self="divClick">
+                       
+                        @click.stop阻止事件的冒泡
+                        <input type="button" value="clickME" @click="btnClick">
+                    </div>
+          </div>
+
+
+
+      
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:"helloVue"
+            },
+            methods:{
+                divClick(){
+                    console.log("div inner click");
+                },
+                btnClick(){
+                    console.log("btn click")
+                },
+                linkClick(){
+                    console.log("a click")
+                },
+                divClick2(){
+                    console.log("div outer click");
+                }
+            }
+  
+            
+
+        });
+    </script>
+</body>
+</html> 
