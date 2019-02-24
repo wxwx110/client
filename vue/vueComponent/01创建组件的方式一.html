@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-com1>
+
+        </my-com1>
+    </div>
+    <script>
+        /*
+            方式一
+        */
+        //Vue.extend创建
+        // let com1=Vue.extend({
+        //     template:'<h3> 这事使用 Vue.extend创建的组件' //指定组件展示的结构
+        // });
+        // //使用Vue.component
+        // //Vue.component('组件名称',创建出来的组件模板对象)
+        // //组件名称不建议用驼峰命名法。HTML不区分大小写，建议用-代替
+        // //建议使用my-com1直接命名
+        // Vue.component('myCom1',com1);
+        Vue.component('myCom1',Vue.extend({
+             template:'<h3> 这事使用 Vue.extend创建的组件' //指定组件展示的结构
+         })); 
+
+        var vm=new Vue({    
+           el:'#app',
+           data:{},
+           methods:{}
+        });
+    </script>
+</body>
+
+</html>

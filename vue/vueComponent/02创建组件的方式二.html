@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-com2>
+
+        </my-com2>
+    </div>
+    <script>
+        /*
+            组件只能包含在一个根元素中
+            '<h1></h1><h1></h1>'
+            则会报错
+        */
+        Vue.component('my-com2',{
+            template:'<h3> 这事使用 Vue.component创建的组件</h3>'
+        })
+
+        var vm=new Vue({    
+           el:'#app',
+           data:{},
+           methods:{}
+        });
+    </script>
+</body>
+
+</html>

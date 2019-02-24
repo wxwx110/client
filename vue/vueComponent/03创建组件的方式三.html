@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <template id="tmp1">
+            <h3> 这是使用template创建的组件元素定义在外部
+                有智能提示
+            </h3>
+    </template>
+    <template id="tmp2">
+            <h5> 这是私有组件
+            </h5>
+    </template>
+   
+
+    <div id="app">
+        <my-com3>
+
+        </my-com3>
+    </div>
+
+    <div id="app2">
+            <my-com3>    
+            </my-com3>   
+            私有组件只能在组件内部使用         
+           <logind></logind>
+            
+        </div>
+    <script>
+        /*
+            组件只能包含在一个根元素中
+            '<h1></h1><h1></h1>'
+            则会报错
+        */
+        Vue.component('my-com3',{
+            template:'#tmp1'
+        })
+
+        var vm=new Vue({    
+           el:'#app',
+           data:{},
+           methods:{}
+        });
+       
+
+        var vm2=new Vue({    
+           el:'#app2',
+           data:{},
+           methods:{},
+           components:{
+                //定义实例私有组件
+                logind:{
+                    template:'#tmp2'
+                }
+           }
+        });
+    </script>
+</body>
+
+</html>
