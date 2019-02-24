@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <!-- vue-resource 依赖VUE -->    
+    <script src="./lib/vue-resource-1.3.4.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="button" value="getAjax" @click="getInfo">
+        <input type="button" value="postAjax" @click="postInfo">
+        <input type="button" value="jsonAjax" @click="jsonpInfo">
+    </div>
+    <script>
+        // 设置HTTP根目录路径
+        //设置完成后，请求只需要写根目录后面的url 部分即可
+        // 注意要写成 this.$http.get('api/getlunbo') 而不是  this.$http.get('/api/getlunbo')  
+        //如果携带/ 则不会使用根路径拼接
+        Vue.http.options.root="www.qq.com";
+
+        //全局配置POST请求JSONPOS类型为FORM
+        //配置后POST请求可以省略第三个参数
+        Vue.http.options.emulateJSON=true;
+
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                msg:"helloVue"
+            },
+            methods:{
+                getInfo(){
+                    // // global Vue object
+                    // Vue.http.get('/someUrl', [config]).then(successCallback, errorCallback);  
+                    // // in a Vue instance
+                    // this.$http.get('/someUrl', [config]).then(successCallback, errorCallback);
+                 
+
+                    this.$http.get('http://vue.studyit.io/api/getlunbo').then(function(scuessRes){
+                        console.log('召唤成功');
+                        console.log(scuessRes);
+                        //通过BODY属性获取成功数据
+                        console.log(scuessRes.body)
+                    },function(unsucessRes){
+                        console.log('召唤失败');
+                        console.log(unsucessRes);
+                    });
+                },
+                postInfo(){
+                    // Vue.http.post('/someUrl', [body], [config]).then(successCallback, errorCallback);
+                    // this.$http.post('/someUrl', [body], [config]).then(successCallback, errorCallback);
+                    //手动发起的POST请求默认没有FORM 表单格式 "application/x-www-form-urlencoded"
+                    //emulateJSON	boolean	Send request body as application/x-www-form-urlencoded content type
+                    //config 参数查询 https://github.com/pagekit/vue-resource/blob/develop/docs/http.md
+                    this.$http.post('http://vue.studyit.io/api/post',{},{ emulateJSON:true }).then(function(scuessRes){
+                        console.log('召唤成功');
+                        console.log(scuessRes);
+                        //通过BODY属性获取成功数据
+                        console.log(scuessRes.body)
+                    },function(unsucessRes){
+                        console.log('召唤失败');
+                        console.log(unsucessRes);
+                    });
+                },
+                jsonpInfo(){
+                    this.$http.jsonp('http://vue.studyit.io/api/post').then(function(scuessRes){
+                        console.log('召唤成功');
+                        console.log(scuessRes);
+                        //通过BODY属性获取成功数据
+                        console.log(scuessRes.body)
+                    },function(unsucessRes){
+                        console.log('召唤失败');
+                        console.log(unsucessRes);
+                    });
+                }
+            }
+  
+            
+
+        });
+    </script>
+</body>
+</html>

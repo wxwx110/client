@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <style>
+        li{
+            border:1px dashed #999;
+            margin: 5px;
+            line-height: 35px;
+            padding-left: 5px;
+            font-size: 12px;
+            /* 移除元素动画时会引起宽度发生变化，使用width修饰后可以取消 */
+            width: 100%
+        }
+
+        .v-enter,
+        .v-leave-to{
+            opacity: 0;
+            transform: translateX(80px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.6s ease;
+        }
+        .v-move{
+            /* 
+                设置删除元素后，其他元素移动的动画
+                需要配合
+                .v-leave-active{
+                    position:absolute;
+                }
+                样式才能生效
+
+             */
+            transition: all 0.6s ease;
+        }
+        .v-leave-active{
+            position:absolute;
+        }
+
+        li:hover{
+            background-color: antiquewhite;
+            transition: all 0.4s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div>
+          
+            <label>
+                id: <input type="text" v-model="newModel.id">
+            </label>
+            <label >
+                name: <input type="text" v-model="newModel.name">
+            </label>
+            <label >
+                <input type="button" value="add" @click="addnewModel">
+            </label>
+         
+        </div>
+        <!-- 实现列表过度时，如果需要过度的元素是通过V-FOR是通过循环列表渲染的，
+            1\不能用transition包裹 而是用transitionGroup
+            2\必须设置key属性
+        -->
+        <ul>
+            <!-- apprear增加页面刚展示时入场效果 -->
+            <transition-group appear>
+                <li v-for="(item,index) in list" :key=item.id @click=del(index)>
+                    {{item.id}}==={{item.name}}
+                </li>
+            </transition-group>
+           
+        </ul>
+        <hr>
+           <!-- 
+               默认情况下 transition-group 会将自己默认渲染成一个SPAN元素，
+               这样页面将不符合W3C规范
+                通过指定tag属性指定渲染transaction-group渲染成社么元素
+            -->
+           <transition-group appear tag="ul">
+                <li v-for="(item,index) in list" :key=item.id @click=del(index)>
+                    {{item.id}}==={{item.name}}
+                </li>
+            </transition-group>
+           
+    </div>
+    <script>
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               newModel:{id:'',name:''},
+               list:[
+                   {id:1 ,name:'aa'},
+                   {id:2 ,name:'bb'},
+                   {id:3 ,name:'cc'},
+                   {id:4 ,name:'dd'}
+                   
+            ]
+           },
+           methods:{
+            addnewModel(){
+                if(this.newModel.id.length>0){
+                
+                   // this.list.push({id:this.newModel.id,name:this.newModel.name });
+                   this.list.push(Object.assign({}, this.newModel));
+                }
+            },
+            del(index){
+                this.list.splice(index,1);
+            },
+            
+          
+           }
+        });
+
+        
+    </script>
+</body>
+
+</html>

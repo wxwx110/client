@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <!-- 特效查看网址https://daneden.github.io/animate.css/ -->
+    <link rel="stylesheet" href="./lib/animate.css">
+    <!-- 入场 bounceIn 离场 bounceOut -->
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="Animatetoggle" @click="flag1=!flag1">
+      <!-- 使用第三方动画需要增加基本 类型  animated -->
+       <!-- <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+                 <h3 v-if="flag1">show h3</h3>
+        </transition> -->
+        <!-- duration：统一设置入场和进场动画总共花费时间 animated 可以增加到动画对象上只需要设置一次即可-->
+        <!-- <transition enter-active-class=" bounceIn" leave-active-class=" bounceOut" :duration="300">
+            <h3 v-if="flag1" class="animated">show h3</h3>
+        </transition> -->
+
+        <!-- duration 通过对象，分别设置入场 时长 和离场 时长  单位毫秒-->
+        <transition enter-active-class=" bounceIn" leave-active-class=" bounceOut"  
+                    :duration="{enter:200 ,levae:400}">
+            <h3 v-if="flag1" class="animated">show h3</h3>
+        </transition>
+    </div>
+    <script>
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               flag1:false
+           },
+           methods:{},
+           
+
+
+        });
+    </script>
+</body>
+
+</html>
