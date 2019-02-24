@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p id="h3">{{msg}}</p>
+        
+        <input type="button" value="changeData" @click="msg='a123'">
+      
+    </div>
+    <script>
+        var vm=new Vue({
+            el:'#app',
+            data:{
+              msg:'ok'
+            },
+            methods:{
+                show(){
+                    console.log('执行了SHOW方法')
+                }
+            },
+            /*
+            VUE创建周期钩子
+            */
+            beforeCreate(){
+                //实例完全被创建之前执行
+                //执行本方法时DATA对象和METHODS还没有被初始化
+                console.log(this.msg);
+                console.log(this.show);
+            },
+            created(){
+                //实例完成创建时执行
+                //Data和Methods已经完成初始化，最早只能在这里操作Data和Methods                
+                console.log(this.msg);
+                console.log(this.show);
+            },
+            beforeMount(){
+                //第三声明周期Vue已经在内存中完成Vue实例的创建和模板编译准备
+                //渲染到网页中
+                //此时看到的只是模板文件,还未完成数据的渲染
+                 console.log(document.getElementById("h3").innerHTML) ;
+            },
+            mounted(){
+                //Vue完成模板渲染，内存中的模板已经渲染到浏览器
+                //用户已经可以看到渲染好的页面。
+                //mounted是实例创建完成的最后一个周期函数
+                //此时完成VUE的初始化工作，并渲染到页面中
+                console.log(document.getElementById("h3").innerHTML) ;
+            },
+            /*
+                VUE运行周期钩子
+            */
+            beforeUpdate(){
+                 //Vue的Data完成数据更新但还未更新渲染到网页
+                 console.log('beforeUpdate Data数据:'+this.msg) ;
+                 console.log('beforeUpdate 页面数据:'+document.getElementById("h3").innerHTML) ;
+            },
+            updated(){
+                //Vue的Data完成数据更新，并在内存中完成渲染DOM并重新渲染到页面
+                console.log('updated Data数据'+this.msg) ;
+                console.log('updated 页面数据'+document.getElementById("h3").innerHTML) ;
+            },
+              /*
+                VUE 销毁周期钩子
+            */
+            beforeDestory(){
+                //实例身上所有的Data和methodS 过滤器，指令，都还处于可用状态
+                //还未执行销毁
+               // alert('beforeDesotry');
+            },
+            destoryed(){
+                //实例身上所有的Data和methodS 过滤器，指令，都已经销毁不可用
+                
+               // alert('destoryed');
+            }
+
+
+  
+            
+
+        });
+    </script>
+</body>
+</html>

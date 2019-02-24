@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
+</head>
+<body>
+    <div id="app">       
+       <div class="panel panel-primary">
+             <div class="panel-heading">
+                   <h3 class="panel-title">添加品牌</h3>
+             </div>
+             <div class="panel-body form-inline">
+                   <label for="">
+                       id <input type="text" class="form-control" v-model="model.id">
+                   </label>
+                   <label for="">
+                       <!--通过按键修饰符约束响应键盘的按钮 @keyup.enter 响应回车，或者可以通过
+                        码值 @keyup.13代替
+                    -->
+                        name <input type="text"  class="form-control" v-model="model.name" @keyup.enter="addModel">
+                    </label>
+                    <label for="">
+                        <input type="button" value="添加" class="btn btn-primary" @click="addModel">
+                    </label>
+                    <label for="">
+                        <!-- 自定指令 Vue中所有指令都以【v-】开头 -->
+                        <!-- v-color="'blue'" 使用单引号表示插入的是'blue'字符串而不是VUE的data变量-->
+                        输入查询关键字 <input type="text"  class="form-control" v-model="keyWord" v-focus v-color="'blue'">
+                    </label>
+
+             </div>
+       </div> 
+       <table class="table table-hover table-striped table-bordered">
+           <thead>
+               <tr>
+                   <th>id</th>
+                   <th>name</th>
+                   <th>crtTime</th>
+                   <th>operation</th>
+               </tr>
+           </thead>
+           <tbody>
+               <tr v-for="(item,index) in search(keyWord)" :key="item.id">
+                   <td>{{item.id}}</td>
+                   <td v-text="item.name"></td>
+                   
+                   <td>{{item.crtTime | dateFormat()}}</td>
+                   <td> <a href="" @click.prevent="delModel(item.id)">删除</a> </td>
+               </tr>
+           </tbody>
+       </table>
+    </div>
+
+    <div id="app2">
+        <div v-fontweight="800" v-fontsize="'20px'">  {{currentData |dateFormat}}</div>
+      
+    </div>
+    <script>
+
+        //全局指令定义
+        //参数1：指令名称，在定义时指令名称前面不需要添加【v-】前缀,但调用时必须增加前缀
+        //参数2：是一个对象，定义与指令相关的函数，这些函数可以在特定的阶段执行相关函数
+        //el:行为的第一个参数是一个原生的JS对象即原始DOM对象
+        Vue.directive('focus',{
+            bind:function(el){ 
+                //当指令绑定到元素上时立即执行，且只执行一次。
+                
+            },
+            inserted:function(el){
+                //表示元素添加到DOM时，执行一次
+                //与JS行为相关的操作最好在INSERT 插入DOM时执行。
+                //与样式相关的操作放到BIND中执行
+                el.focus();
+            },
+            updated:function(el){
+                //当节点（VNODE）更新时，执行，可能处罚多次
+            }
+        })
+
+        Vue.directive('color',{
+            //样式,只要通过指令绑定给了元素，无论是否插入到DOM中，元素肯定有了内联样式
+            // 第二个参数包含变量的上下文对象
+            bind:function(el,binding){
+                el.style.color=binding.value;
+                console.log(binding);
+            }
+        })
+
+        //通过自定义全局定义后，可以在事件中直接使用@keyUp.f2执行操作
+       Vue.config.keyCodes.f2=113;
+       //全局过滤器，可以在不同的VUE对象之间共享
+        Vue.filter('dateFormat',function(dataStr,pattern=''){
+            let dt=new Date(dataStr);
+            let y=dt.getFullYear();
+            let m=(dt.getMonth()+1).toString().padStart(2,'0');
+            let d=dt.getDate();
+           
+            if(pattern.toLowerCase() ==='yyyy-mm-dd'){
+                return `${y}-${m}-${d}`;
+            }else{
+                let hh=dt.getHours();
+                let mm=dt.getMinutes();
+                let ss=dt.getSeconds();
+                return `${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+            }
+        })
+        var vm=new Vue({
+            el:'#app',
+            data:{
+                model:{id:'',name:'',crtTime:new Date()},
+                list:[
+                    {id:1,name:'a',crtTime:new Date()},
+                    {id:2,name:'ab',crtTime:new Date()}
+                ],
+                keyWord:''
+            },
+            methods:{
+                addModel(){
+                    if(this.model.id.length>0){
+                        this.list.push(this.model);
+                    }                   
+                },
+                delModel(id){
+                    if(this.list.length>0 ){
+                        this.list.some((item,i)=>{
+                            if(item.id == id){
+                            this.list.splice(i,1);
+                            return true;
+                                }
+                        })
+                    }
+
+                    if(this.list.length>0){
+                        let modelIndex=this.list.findIndex(item=>{
+                            if(item.id == id)
+
+                            return true;
+                        })
+                        this.list.splice(modelIndex,1);
+                    }
+                },
+                search(keyWord){
+                    // if(keyWord.length==0){
+                    //     return this.list;
+                    // }else{
+                    //     let newList=[];
+                    //     this.list.forEach(item => {
+                    //         if(item.name.indexOf(keyWord) >= 0)
+                    //         newList.push(item);
+                    //     });
+                    //     return newList;
+                    // }
+                    return this.list.filter(item=>{
+                        //ES6 新语法
+                        if(item.name.includes(keyWord))
+                        return item;
+                    })
+
+                }
+            }
+        });
+
+        var vm2=new Vue({
+            el:'#app2',
+            data:{
+                currentData:new Date()
+            },
+            filters:{
+                //私有过滤器
+                //过滤器调用就近原则，优先使用私有过滤器
+                dateFormat:function(dataStr,pattern=''){
+                    let dt=new Date(dataStr);
+                    let y=dt.getFullYear();
+                    //padStart,padEnd，以某一个字符填充字符串
+                    let m=(dt.getMonth()+1).toString().padStart(2,'0');
+                    let d=dt.getDate();
+                
+                    if(pattern.toLowerCase() ==='yyyy-mm-dd'){
+                        return `${y}-${m}-${d}`;
+                    }else{
+                        let hh=dt.getHours();
+                        let mm=dt.getMinutes();
+                        let ss=dt.getSeconds();
+                        return `私有的${y}-${m}-${d} ${hh}:${mm}:${ss}`;
+                    }
+                }
+
+            },
+            //定义私有指令
+            directives:{
+                'fontweight':{
+                    bind:function(el,binding){
+                        el.style.fontWeight=binding.value;
+                    }
+                },
+                //等同于写入bind 和update中
+                'fontsize':function(el,binding){
+                    el.style.fontsize=`${parseInt( binding.value)}px`;
+                }
+            }
+        });
+
+        
+    </script>
+</body>
+</html>
