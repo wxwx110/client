@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model="firstname" >+
+        <input type="text" v-model="lastname " >=
+        <input type="text" v-model="fullname">
+
+
+    </div>
+    <script>
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               firstname:'',
+               lastname:'',
+               
+           },
+           methods:{},
+           computed:{
+               //记算属性本质就是一个方法
+               //记算属性再引用的时候可以当做普通data调用即可
+               //只要记算属性function内部用到的任何数据发生变化就会立即重新记算属性值 
+               //记算属性的结果会被缓存方便下次直接使用
+               'fullname':function(){
+                   return `${this.firstname}-${this.lastname}`;
+               }
+           }
+        });
+    </script>
+</body>
+
+</html>

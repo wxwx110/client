@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <!-- 引入路由JS文件，要先引入vue.js 导入后会自动增加哈希路由url#/-->
+    <script src="./lib/vue-router-3.0.1.js"></script>
+    <style>
+        /* 修改默认连接样式 */
+        .router-link-active{
+            color:red;
+            font-weight: 600;
+        }
+        .v-enter,
+        v-leave-to{
+            opacity: 0;
+            transform: translateX(80px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+      
+        <router-link to="/login" tag="span">登录</router-link>
+        <router-link to="/reg">注册</router-link>       
+        
+      
+        <transition mode="out-in">
+                <router-view>           
+                    </router-view>
+        </transition>
+      
+    </div>
+    <script>
+        let login={
+             template:'<h3>登录组件</h3>'
+        }
+        let reg={
+             template:'<h3>注册组件</h3>'
+        }    
+        let routerObj=new VueRouter({       
+            linkActiveClass:'myactive',
+        
+           routes:[           
+               {path:'/login', component:login},
+               {path:'/reg', component:reg},        
+                {path:'/',redirect:'/login'}
+           ]
+        });
+        var vm=new Vue({
+           el:'#app',
+           data:{},
+           methods:{},        
+           router:routerObj,
+           watch: {
+               '$route.path':function(newVal,oldVal){
+                    console.log('newVal :', newVal);
+                    console.log('oldVal :', oldVal);
+               }
+           },
+      
+        });
+    </script>
+</body>
+
+</html>
