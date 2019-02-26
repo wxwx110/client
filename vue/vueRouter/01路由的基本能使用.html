@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <!-- 引入路由JS文件，要先引入vue.js 导入后会自动增加哈希路由url#/-->
+    <script src="./lib/vue-router-3.0.1.js"></script>
+    <style>
+        /* 修改默认连接样式 */
+        .router-link-active{
+            color:red;
+            font-weight: 600;
+        }
+        .v-enter,
+        v-leave-to{
+            opacity: 0;
+            transform: translateX(80px);
+        }
+        .v-enter-active,
+        .v-leave-active{
+            transition: all 0.5s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <a href="#/login">登录</a>
+        <a href="#/reg">注册</a> -->
+
+        <!-- 默认渲染是一个A标签 通过tag可以修改渲染标签-->
+        <router-link to="/login" tag="span">登录</router-link>
+        <router-link to="/reg">注册</router-link>
+        
+        
+        <!-- 占坑用于显示路由控件，由vue-router提供 -->
+        <transition mode="out-in">
+                <router-view>           
+                    </router-view>
+        </transition>
+      
+    </div>
+    <script>
+        let login={
+             template:'<h3>登录组件</h3>'
+        }
+        let reg={
+             template:'<h3>注册组件</h3>'
+        }
+        //导入路由包后，window对象就有了VueRouter，构建函数
+        //特别注意，路由申明要放到控件声明之后
+        let routerObj=new VueRouter({
+            // 设置当前激活连接的样式
+            linkActiveClass:'myactive',
+            //路由匹配规则
+           routes:[
+               //每一个路由规则都是一个对象，有两个必须属性
+               //1、path表示监听，连接地址
+               //2、component 如果路由是前面匹配到的path则展示component 属性对应的组件
+               // 注意 component 后面的属性值必须是一个主键模板对象，不是名称
+               {path:'/login', component:login},
+               {path:'/reg', component:reg},
+                /*
+                    这样做虽然可以默认显示登录，但是同一个组件就有两个rul地址
+                */
+                //{path:'/',component:login}
+                {path:'/',redirect:'/login'}
+           ]
+        });
+        var vm=new Vue({
+           el:'#app',
+           data:{},
+           methods:{},
+           //路由规则对象注册到VM用于监听URL的变化，显示不同的组件
+           router:routerObj,
+        //    使用router后无需再注册组件
+        //    components:{
+        //        login,
+        //        reg
+        //    }
+        });
+    </script>
+</body>
+
+</html>

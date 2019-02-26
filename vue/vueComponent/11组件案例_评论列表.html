@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <link rel="stylesheet" href="./lib/bootstrap-3.3.7.css">
+</head>
+
+<body>
+    <div id="app">
+            <!-- <cmt-box @func="addContent"></cmt-box> -->
+            <!-- 注意 @load-data=也要按照HTML规则来执行 -->
+            <cmt-box @load-data="loadComments"></cmt-box>
+        <ul class="list-group">
+            <li class="list-group-item" v-for="item in list" :key="item.id">
+                <span class="badge">评论人:{{item.user}}</span>
+                {{item.content}}
+            </li>
+         
+        </ul>
+        
+    </div>
+    <template id="tmp1">
+        <div>
+            <div class="form-group">
+                <label>评论人</label>
+                <input type="text" class="form-control" v-model="nuser">
+            </div>
+            <div class="form-group">
+                <label>评论内容</label>
+                <textarea class="form-control" v-model="ncontent"></textarea>
+            </div>
+            <div class="form-group">
+                <input type="button" value="发表评论" class="btn btn-primary" @click="addContent">
+            </div>
+        </div>
+    </template>
+    <script>
+        var commentBox={
+            template:'#tmp1',
+            data() {
+                return {
+                   nuser:'',
+                   ncontent:''
+                }
+            },
+            methods: {
+                addContent(){
+                    //回传的对象是引用类型，需要克隆一个新的对象
+                    //  this.$emit('func',this.newContent);
+                   // this.$emit('func',Object.assign({},this.newContent))
+                    //this.$emit('func',{id:Date().now,user:this.user,content:this.content});
+                    /*
+                        localStorage存储数据
+                    */
+                    var comment={id:Date().now,user:this.nuser,content:this.ncontent};
+                    //localStorage获取所有评论对象
+                    var list=JSON.parse(localStorage.getItem('cmts')||'[]');
+                    list.unshift(comment);
+                    //保存最新的评论数据
+                    localStorage.setItem('cmts',JSON.stringify(list));
+                    this.nuser=this.ncontent='';
+                    this.$emit('load-data');
+                }
+            },
+        }
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               list :[
+                   {id:Date.now(),user:'aaa',content:'文字1'},
+                   {id:Date.now(),user:'bbb',content:'文字2'},
+                   {id:Date.now(),user:'ccc',content:'文字3'},
+               ]
+           },
+           created() {
+                    console.log('111 :', 111);
+                    this.loadComments();
+            },
+           methods:{
+                 //    addContent(newContent){
+            //         this.list.push(newContent)
+            //    }
+               loadComments(){//从本地localStorage中加载评论列表
+                    var _list=JSON.parse(localStorage.getItem('cmts')||'[]');
+                    console.log(_list)
+                    this.list=_list;
+
+               },
+          
+               
+            },
+
+            components:{
+                'cmt-box':commentBox
+            }
+        });
+    </script>
+</body>
+
+</html>

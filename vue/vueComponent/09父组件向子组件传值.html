@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+   
+    <div id="app">
+        {{msg}}
+        <!-- 父组件通过属性绑定的方式，将数据传递到子组件内部提供给子组件使用 -->
+        <com1 :mymsg='msg'></com1>
+    </div>
+   
+    <script>
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               msg:'父组件中的数据'
+           },
+           methods:{},
+           components:{
+               //
+               com1:{                                      
+                template:' <div><h5>这是子组件中的数据---{{comData}}</h5><h1 @click="change" >这是子组件--{{mymsg}}</h1> </div>',
+                //定义props接受组件外部绑定的参数
+                //PROPS得到的数据，可以再组件内部进行修改，但是这不符合Vue 的规范，不建议这样做
+                //被修改后的值，并不能传递到组件外部，也不会处罚dataChange后的其他操作
+                props:[
+                    'mymsg'
+                ],
+                data:function(){
+                    return {
+                        comData:'子组件中的数据'
+                    }
+                    
+                },
+                methods: {
+                    change(){
+                        this.mymsg='子组件修改数据';
+                    }
+                },
+                       
+                  
+               }
+           }
+        });
+    </script>
+</body>
+
+</html>

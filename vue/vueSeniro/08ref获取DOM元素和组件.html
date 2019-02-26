@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <input type="button" value="获取元素" @click="getElement">
+        <h3 ref="myh3">今天天气不错</h3>
+
+        <hr>
+        <login ref="mylogin"></login>
+    </div>
+    
+    <script>
+        var login={
+            data() {
+                return {
+                    msg:'子组件的msg'
+                }
+            },
+            methods:{
+                show(){
+                    console.log('子组件的方法 ');
+                }
+            },
+            template:'<div><h1>登录组件</h1></div>'
+        };
+
+        var vm=new Vue({
+           el:'#app',
+           data:{},
+           
+           methods:{
+            getElement(){
+                //refs 
+                console.log('this.$refs.myh3.innerText :', this.$refs.myh3.innerText);
+                console.log('获得子组件 :', this.$refs.mylogin);
+                console.log('获得子组件的数据信息 :', this.$refs.mylogin.msg);
+                this.$refs.mylogin.show()
+            }
+           },
+           components:{
+               login
+           }
+          
+        });
+    </script>
+</body>
+
+</html>

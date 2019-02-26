@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 通过事件属性，把事件传递给子组件 -->
+        <com2 @func="show"></com2>
+     </div>
+    <template id="tmp1">
+        <div>
+            <h1>这是子组件</h1>
+            <input type="button" value="子组件按钮，调用父组件方法" @click="myclick">
+        </div>
+    </template>
+    <script>
+        var com2={
+            template:'#tmp1',
+            data(){
+                return {
+                    sonmessage:{name:'aaa',age:6}
+                }
+            },
+            methods: {
+                myclick(){
+                    // emit 代表触发调用
+                    // <com2 @func="show"></com2>
+                    //触发绑定父方法的 属性名
+                    //调用时，从第二个参数开始可以传递参数
+                    this.$emit('func','123',46,this.sonmessage);
+                }
+            },
+        }
+        var vm=new Vue({
+           el:'#app',
+           data:{
+               sonmessage: {}
+               },
+           methods:{
+               //通过方法调用，变相实现了，子组件向父组件传值
+               show(data,data2,data3){
+                   console.log('调用了父组件的show方法:',data+data2);
+                   console.log('data3 :', data3);
+                   this.sonmesssonmessageage=data3;
+                   console.log('this.sonmessage :', this.sonmessage);
+               }
+           },
+           components:{
+               com2
+           }
+
+        });
+    </script>
+</body>
+
+</html>

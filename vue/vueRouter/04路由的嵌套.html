@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <script src="./lib/vue-router-3.0.1.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <router-link to="/Account">Account</router-link>
+        <router-view>
+
+        </router-view>
+    </div>
+    <template id="tmp1">
+        <div>
+            <h1>这是accountyt</h1>
+            <router-link to="/Account/login">登录</router-link>
+            <router-link to="/Account/reg">注册</router-link>
+            <router-view></router-view>
+        </div>
+    </template>
+    <template id="login">
+            <div>
+                <h4>这是login</h4>              
+            </div>
+     </template>
+     <template id="reg">
+            <div>
+                <h4>这是reg</h4>              
+            </div>
+     </template>
+    <script>
+     
+        var account={
+            template:'#tmp1'
+         };
+        var login={
+            template:'#login'
+        };
+        var reg={
+            template:'#reg'
+        };
+         var router = new VueRouter({
+            routes: [
+                //{path:'/Account',component:account},
+                //平级声明路由不能实现路由嵌套
+                // {path:'/Account/login',component:login},
+                // {path:'/Account/reg',component:reg},
+                {
+                    path:'/Account'
+                    ,component:account
+                    ,children:[
+                        {path:'login',component:login},
+                        {path:'reg',component:reg},
+                    ]
+
+                },
+
+            ]    
+        })
+        
+        var vm=new Vue({
+           el:'#app',
+           data:{},
+           methods:{},
+            router
+        });
+    </script>
+</body>
+
+</html>

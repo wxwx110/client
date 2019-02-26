@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <my-com2>
+
+        </my-com2>
+
+        <mycom2></mycom2>
+    </div>
+    <script>
+       let mycom2={
+            template:'<h3> 这事使用 Vue.component创建的组件</h3>'
+        }
+       
+        Vue.component('my-com2',mycom2)
+
+        var vm=new Vue({    
+           el:'#app',
+           data:{},
+           methods:{},
+           components:{
+            // 表示对象属性得名称和值都是mycom2
+                mycom2
+           }
+           
+        });
+    </script>
+</body>
+
+</html>

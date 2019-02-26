@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/vue-2.4.0.js"></script>
+    <script src="./lib/vue-router-3.0.1.js"></script>
+</head>
+
+<body>
+    <div id="app">
+         <!-- 无需修改路由规则也可用 -->
+        <router-link to="/login/10/aa">登录</router-link>
+        <router-link to="/reg">注册</router-link>
+        <router-view>
+
+        </router-view>
+        
+    </div>
+    <script>
+       var login={
+           template:"<h1>登录-{{this.$route.params.id}}--{{$route.params.name}}</h1>",
+           created(){ //组件声明周期钩子
+                console.log('this.$route :', this.$route);
+           },
+           data() {
+               return {
+                   msg:123,
+               }
+           },
+       }
+       var reg={
+           template:"<h1>注册</h1>"
+       }
+       var router = new VueRouter({
+           
+            routes:[
+                //通过这个表达式建立一个路由正则表达式，解析得到参数
+               {path:'/login/:id/:name',component:login},
+               {path:'/reg',component:reg}
+           ]
+       }) 
+        var vm=new Vue({
+           el:'#app',
+           data:{},
+           methods:{},
+           //router:router
+           //可以简写如下
+           router:router,
+        });
+    </script>
+</body>
+
+</html>
