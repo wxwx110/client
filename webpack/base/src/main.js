@@ -13,7 +13,7 @@
 import $ from 'jquery'
 
 $(function(){
-    $('li:odd').css('backgroundColor','yellow');
+    $('li:odd').css('backgroundColor','lightblue');
     $('li:even').css("backgroundColor",function(){
         return '#'+'D97634';
     })
@@ -25,7 +25,9 @@ $(function(){
 //3、打包命令 webpack 空格 要打包得文件 空格 打包文件输出路径
 
 
-
-
+//webpack实现自动打包编译功能
+//  "webpack": "^3.10.0",
+//"webpack-dev-server": "^2.9.7"
 //使用webpack-dev-server 可以实现自动打包编译
 //1、运行 npm -i webpack-dev-server -D 把这个工具安装到项目的本地开发依赖
+//2、安装完成后用法与webpack完全一致
