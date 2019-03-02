@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+     <!-- 
+        需求：实现隔行变色效果，学习基本得webpack打包
+     -->
+    <!-- 
+        1、再终端执行初始化命令npm init -y初始化项目 (项目增加package.json 文件)
+        2、执行 npm i jquery -s 打包安装jQuery (项目增加node_modules目录)
+
+        3、为了减少文件应用，所有得JS引用打包放入main.js文件
+     -->
+     <!-- main 涉及到新语法浏览器无法识别 -->
+     <!-- <script src="./main.js"></script> -->
+     <!-- 通过webpack 处理后生成bundle.js文件 -->
+     <script src="../dist/bundle.js"></script>
+</head>
+<body>
+    <ul>
+        <li>这是弟1个li</li>
+        <li>这是弟2个li</li>
+        <li>这是弟3个li</li>
+        <li>这是弟4个li</li>
+        <li>这是弟5个li</li>
+        <li>这是弟6个li</li>
+        <li>这是弟7个li</li>
+        <li>这是弟8个li</li>
+        <li>这是弟9个li</li>
+        <li>这是弟10个li</li>
+    </ul>
+</body>
+</html>

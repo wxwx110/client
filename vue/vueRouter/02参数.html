@@ -13,7 +13,7 @@
 <body>
     <div id="app">
          <!-- 无需修改路由规则也可用 -->
-        <router-link to="/login?id=10&name=aaa">登录</router-link>
+        <router-link to="/login?id=2&name=aaa">登录</router-link>
         <router-link to="/reg">注册</router-link>
         <router-view>
 
@@ -44,7 +44,11 @@
        }) 
         var vm=new Vue({
            el:'#app',
-           data:{},
+           data:{
+               id:1,
+               name :'aa'
+            
+           },
            methods:{},
            //router:router
            //可以简写如下
