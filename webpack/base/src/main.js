@@ -12,6 +12,15 @@
 //处理main.js输出至，根目录下得dist目录内bundle.js
 import $ from 'jquery'
 
+//webpack只能打包.JS文件对于其他类型文件需要使用第三方打包工具
+// "css-loader": "^0.28.0",  "style-loader": "^0.23.1",
+// "less": "^2.1.1",
+//"less-loader": "^2.0.0"
+//并在webpack.config.js 文件module节点下的rules【】中配置对应的文件加载规则
+import './css/index.css'
+import './css/index.less'
+import './css/index.sass'
+
 $(function(){
     $('li:odd').css('backgroundColor','lightblue');
     $('li:even').css("backgroundColor",function(){
