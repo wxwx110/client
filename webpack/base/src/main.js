@@ -19,7 +19,7 @@ import $ from 'jquery'
 //并在webpack.config.js 文件module节点下的rules【】中配置对应的文件加载规则
 import './css/index.css'
 import './css/index.less'
-import './css/index.sass'
+//import './css/index.sass'
 
 $(function(){
     $('li:odd').css('backgroundColor','lightblue');
@@ -61,3 +61,6 @@ $(function(){
 
 
 //npm i html-webpack-plugin 插件用于HTML内存化操作
+
+
+//安装node-sass@4.0.0 时需要使用cnpm安装

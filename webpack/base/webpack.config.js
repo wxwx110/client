@@ -44,8 +44,10 @@ module.exports={
             //使用正则表达式匹配.CSS文件
             //配置处理CSS第三方规则
             //调用规则，从右到左
+            //webpack 1.X可以不带-lodader
             { test:/\.css$/,use:['style-loader','css-loader']},
-            {test:/\.less$/,use:['style-loader','css-loader','less-loader']}
+            {test:/\.less$/,use:['style-loader','css-loader','less-loader']},
+            {test:/\.sass/,use:['style-loader','css-loader','sass-loader']}
         ]
             
     }
