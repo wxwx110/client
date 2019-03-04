@@ -1,5 +1,6 @@
 /MT
 /webpack/base/node_modules
+/webpack/base2/node_modules
 webpack/base/node_modules/whet.extend/test/test_helper.coffee
 webpack/base/node_modules/.bin/browserslist
 webpack/base/node_modules/.bin/browserslist.cmd
