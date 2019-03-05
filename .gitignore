@@ -1,6 +1,7 @@
 /MT
 /webpack/base/node_modules
 /webpack/base2/node_modules
+/webpack/bable/node_modules
 webpack/base/node_modules/whet.extend/test/test_helper.coffee
 webpack/base/node_modules/.bin/browserslist
 webpack/base/node_modules/.bin/browserslist.cmd
@@ -4138,3 +4139,7 @@ webpack/base/node_modules/y18n/package.json
 webpack/base/node_modules/yallist/package.json
 webpack/base/node_modules/yargs/package.json
 webpack/base/node_modules/yargs-parser/package.json
+webpack/base2/src/images/aaa.jpg
+webpack/base2/src/images2/aaa.jpg
+.gitignore
+.gitignore
