@@ -1,4 +1,7 @@
 /MT
+/vue/vueWebpack/webpack_router2/node_modules
+/vue/vueWebpack/webpack_router/node_modules
+/vue/vueWebpack/label_Vue/node_modules
 /webpack/base/node_modules
 /webpack/base2/node_modules
 /webpack/bable/node_modules
