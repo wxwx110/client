@@ -1,4 +1,5 @@
 /MT
+/vue/mui/node_modules
 /vue/mintUI/node_modules
 /vue/vueWebpack/webpack_router2/node_modules
 /vue/vueWebpack/webpack_router/node_modules
