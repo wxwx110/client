@@ -4,19 +4,11 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 //导入组件
 import app from './App.vue'
-import account from './main/Account.vue'
-import goodsList from './main/GoodsList.vue' 
+
+import router from './router.js'
 
 //手动安装VueRouter
 Vue.use(VueRouter)
-
-var router=new VueRouter({
-    routes:[
-        {path:'/account',component: account},
-        {path:'/goodslist',component: goodsList}
-    ]
-})
-
 var vm=new Vue({
     el:'#app',
     render :c=>c(app),
