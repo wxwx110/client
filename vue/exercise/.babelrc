@@ -1,0 +1,14 @@
+{
+    "presets": ["env","stage-0"],
+    "plugins": ["transform-runtime",
+                //部分引入mimt-ui需要增加此配置并安装npm install babel-plugin-component -D
+                    ["component", 
+                        [
+                            {
+                            "libraryName": "mint-ui",
+                            "style": true
+                            }
+                        ]
+                    ]
+                ]
+}
