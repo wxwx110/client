@@ -3,7 +3,7 @@
         <ul class="mui-table-view">
             <!-- newsList:[{id:13,title:'title',addTime:"2018-08-08",zhaiyao:'aaaaa',click:'10',imgUrl:"../../tmpImages/a1.jpg"}] -->
             <li class="mui-table-view-cell mui-media" v-for="item in newsList" :key="item.id">
-                <a href="javascript:;">
+                <router-link :to='"/home/info/"+item.id'>
                     <img class="mui-media-object mui-pull-left" :src="item.imgUrl">
                     <div class="mui-media-body">
                        <h1>{{item.title}}</h1> 
@@ -12,7 +12,7 @@
                              <span>点击：{{item.click}}次 </span>
                         </p>
                     </div>
-                </a>
+                </router-link>
             </li>
             <!-- <li class="mui-table-view-cell mui-media">
                 <a href="javascript:;">
@@ -55,7 +55,7 @@ export default {
     },
     methods:{
         getNewsList(){
-            // this.$http.get('').then((result)=>{
+            // this.$http.get('url').then((result)=>{
             //         if(result.body.status===0){
             //             this.newsList=result.body.message;
             //         }else{

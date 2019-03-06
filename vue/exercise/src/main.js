@@ -12,12 +12,14 @@ import router from './router.js'
 //导入根组件
 import app from './App.vue'
 //按需导入组件
-import {Header,Swipe, SwipeItem} from 'mint-ui'
+import {Header,Swipe, SwipeItem,Button} from 'mint-ui'
 //头部置顶
 Vue.component(Header.name,Header)
 //轮播图
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+//按钮
+Vue.component(Button.name, Button);
 
 //导入mui
 import   './lib/mui/css/mui.min.css'
@@ -32,11 +34,11 @@ Vue.use(VueResource);
 Vue.http.options.root='http://xxx.xxxxx';
 
 //导入时间插件
-import moment from 'moment'
+import moment from 'moment';
 //定义全局过滤器
-Vue.filters('dateFormat',function(dataStr,partten="YYYY-MM-DD HH:mm:ss"){
+Vue.filter ('dateFormat',function(dataStr,partten="YYYY-MM-DD HH:mm:ss"){
     return moment(dataStr).format(partten);
-})
+});
 
 
 
