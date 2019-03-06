@@ -28,7 +28,15 @@ import './lib/mui/css/icons-extra.css'
 import VueResource from 'vue-resource'
 Vue.use(VueResource);
 
+//设置请求根路径
+Vue.http.options.root='http://xxx.xxxxx';
 
+//导入时间插件
+import moment from 'moment'
+//定义全局过滤器
+Vue.filters('dateFormat',function(dataStr,partten="YYYY-MM-DD HH:mm:ss"){
+    return moment(dataStr).format(partten);
+})
 
 
 

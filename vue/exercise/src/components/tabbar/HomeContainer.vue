@@ -15,10 +15,15 @@
         </div>
         <div class="mui-content">
              <ul class="mui-table-view mui-grid-view mui-grid-9">
-		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
-		                    <!-- <span class="mui-icon mui-icon-home"></span> -->
-                            <img src="../../images/menu1.png" alt="">
-		                    <div class="mui-media-body">新闻资讯</div></a></li>
+		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+                          <!-- <span class="mui-icon mui-icon-home"></span> -->
+                        <router-link to="/home/newslist">
+                            <a href="#">
+                                <img src="../../images/menu1.png" alt="">
+                                <div class="mui-media-body">新闻资讯</div>
+                            </a>
+                        </router-link>
+                    </li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 		                    <!-- <span class="mui-icon mui-icon-email"> -->
                             <img src="../../images/menu2.png" alt="">
@@ -53,11 +58,7 @@ import { Toast } from 'mint-ui';
 export default {
     data(){
         return {
-            swipeImages:[
-                {url:'http://www.baidu.com',imgUrl:'../../tmpImages/a1.jpg'},
-                {url:'http://www.qq.com',imgUrl:'../../tmpImages/a2.jpg'},
-                 {url:'http://www.baotao.com',imgUrl:'../../tmpImages/a3.jpg'}
-            ],
+            swipeImages:[],
               
         }
     },
@@ -75,6 +76,12 @@ export default {
             //         Toast(获取加载轮播图失败)
             //     }
             // });
+
+           this.swipeImages= [
+                {url:'http://www.baidu.com',imgUrl:'../../tmpImages/a1.jpg'},
+                {url:'http://www.qq.com',imgUrl:'../../tmpImages/a2.jpg'},
+                 {url:'http://www.baotao.com',imgUrl:'../../tmpImages/a3.jpg'}
+            ];
         }
     }
 }

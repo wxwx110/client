@@ -42,7 +42,9 @@
 </script>
  <style scoped>
  .app-container{
+	 /* 让子组件不要被top 和tabbar阻挡 */
      padding-top: 40px;
+	 padding-bottom: 50px;
 	/* 解决动画效果导致底部tabbar位移问题 */
 	 overflow-x:hidden;
  }
