@@ -32,6 +32,8 @@ Vue.use(VueResource);
 
 //设置请求根路径
 Vue.http.options.root='http://xxx.xxxxx';
+//设置POST  时候表单数据的 POST 数据格式 application/x-www-form-urlencoded
+Vue.http.options.emulateJSON=true;
 
 //导入时间插件
 import moment from 'moment';

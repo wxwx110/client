@@ -18,10 +18,10 @@
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
                           <!-- <span class="mui-icon mui-icon-home"></span> -->
                         <router-link to="/home/newslist">
-                            <a href="#">
+                            <!-- <a href="#"> -->
                                 <img src="../../images/menu1.png" alt="">
                                 <div class="mui-media-body">新闻资讯</div>
-                            </a>
+                            <!-- </a> -->
                         </router-link>
                     </li>
 		            <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">

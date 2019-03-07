@@ -2,8 +2,8 @@
     <div class="cmt-container">
         <div class="cmt-resume"><h3>发表评论</h3> </div>        
         <div>
-            <textarea  placeholder="请输入评论内容(最多120字)"></textarea>
-            <mt-button type="primary" size="large">发表评论</mt-button>
+            <textarea  placeholder="请输入评论内容(最多120字)" v-model="newComment"></textarea>
+            <mt-button type="primary" size="large" @click="addComment">发表评论</mt-button>
         </div>
         <div>
             <div class="cmt-list">
@@ -44,7 +44,8 @@ export default {
     data(){ 
         return {
             cmtList:[{id:1,uername:"超人",addTime:new Date(),content:'品论内容'}],
-            pageIndex:1 //评论页面，默认展示第一页
+            pageIndex:1, //评论页面，默认展示第一页
+            newComment:'', //新增评论            
         }
     },
     props:[
@@ -58,18 +59,38 @@ export default {
             this.$http.get('url'+this.newsId+"/pageIndex"+this.pageIndex).then((result)=>{
                     if(result.body.status===0){
                         //加载更多时保留已读取数据
-                        this.cmtList=this.cmtList.concat( result.body.message);
-                           
+                        if(this.pageIndex===1){
+                            this.cmtList=result.body.message;
+                        }else{
+                            this.cmtList=this.cmtList.concat( result.body.message);
+                        }  
                     }else{
                         Toast('获取评论列表失败');
                     }
                 }
-
             );
         },
         getMoreCmt(){
             this.pageIndex+=1;
             this.getCMTList()
+        },
+        addComment(){
+            if(this.newComment.trim().length>0){
+                //用户标识，可以通过后台的sessiON获取无需通过前端提交
+                this.$http.post('url'+this.newsId,{newComment:this.newComment}).then(
+                    res=>{
+                        this.newComment='';
+                        if(res.body.result==0){
+                            this.pageIndex=1;
+                            this.getCMTList();
+                        }else{
+                            Toast('提交失败');
+                        }
+                    }
+                )
+            }else{
+                Toast('评论内容不能为空');
+            }
         }
     }
 
@@ -100,6 +121,5 @@ export default {
             }
         }
     }
-
 }
 </style>
