@@ -2,38 +2,13 @@
     <div>
         <div class="top-content">
             <div id="slider" class="mui-slider ">
+				<!-- 滚动条的高亮是组件内部自动实现的与vue无关 -->
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
-					<div class="mui-scroll">
-						<a class="mui-control-item mui-active" href="#item1mobile" data-wid="tab-top-subpage-1.html">
-							推荐
+					<div class="mui-scroll">						
+						<a :class="['mui-control-item',item.id == -1 ? 'mui-active':'']" v-for="item in photoCategory" :key=item.id>
+							{{item.title}}
 						</a>
-						<a class="mui-control-item" href="#item2mobile" data-wid="tab-top-subpage-2.html">
-							热点
-						</a>
-						<a class="mui-control-item" href="#item3mobile" data-wid="tab-top-subpage-3.html">
-							北京
-						</a>
-						<a class="mui-control-item" href="#item4mobile" data-wid="tab-top-subpage-4.html">
-							社会
-						</a>
-						<a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">
-							娱乐
-						</a>
-                        <a class="mui-control-item mui-active" href="#item1mobile" data-wid="tab-top-subpage-1.html">
-							推荐
-						</a>
-						<a class="mui-control-item" href="#item2mobile" data-wid="tab-top-subpage-2.html">
-							热点
-						</a>
-						<a class="mui-control-item" href="#item3mobile" data-wid="tab-top-subpage-3.html">
-							北京
-						</a>
-						<a class="mui-control-item" href="#item4mobile" data-wid="tab-top-subpage-4.html">
-							社会
-						</a>
-						<a class="mui-control-item" href="#item5mobile" data-wid="tab-top-subpage-5.html">
-							娱乐
-						</a>
+					
 					</div>
 				</div>
 
@@ -60,7 +35,7 @@ import mui from '../../lib/mui/js/mui.min.js'
 export default {
     data(){
         return {
-			photoCategory:[{id:-1,title:'全部'}]
+			photoCategory:[{id:-1,title:'全部'},{id:1,title:'热点'},{id:2,title:'社会'},{id:3,title:'推荐'},{id:4,title:'动漫'}]
         }
     },
     mounted(){
