@@ -11,6 +11,7 @@ import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
 //新闻组件
 import NewsList from './components/news/newsList.vue'
 import NewsInfo from './components/news/newsInfo.vue'
+import PhotoList from './components/photos/photoList.vue'
 
 
 
@@ -26,7 +27,10 @@ var router=new VueRouter({
         {path:'/search',component : SearchContainer},
         // 新闻路由
         {path:'/home/newslist',component : NewsList},
-        {path:'/home/info/:id',component:NewsInfo}
+        {path:'/home/info/:id',component:NewsInfo},
+        //图片路由
+        {path:'/home/photolist',component:PhotoList }
+
 
     ],
     linkActiveClass:'mui-active'//覆盖默认路由高亮类router-link-active

@@ -52,3 +52,49 @@
 3. 校验用户录入是否合法
 4. 提交数据到服务器
 5. 刷新评论列表
+
+## 图片列表
+1. 改造九宫格图片按钮增加路由跳转
+2. 跳转到路由列表
+3. 增加图片列表组件
+
+## 绘制图片你列表
+1. 顶部滑动条
+2. 底部图片列表
+
+## 制作顶部滑动条的坑
+1. 需要使用 MUI tab-top-webview-main 组件
+2. 需要取消 mui-fullscreen 样式
+3. 滑动需要使用JS初始化，需要引入mui的JS
+ + 导入mui JS
+ + 调用官方scroll部分的介绍进行初始化
+ ```
+ mui('.mui-scroll-wrapper').scroll({
+	deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+});
+ ```
+4. 初始化滑动条，导致报错
+```
+/**
+ * import mui from '../../lib/mui/js/mui.min.js' 
+ * 导致 在JS严格模式下不能使用报错如下：
+ * ncaught TypeError: 'caller', 'callee', and 'arguments' 
+ * properties may not be accessed on strict mode functions 
+ * or the arguments objects for calls to them
+ * 原因是webpack打包时，启用严格模式而mui.js中用到了'caller', 'callee', and 'arguments' 
+ * 导致冲突
+ */
+```
+ + 解决方案: 1. 把webpack 打包时的严格模式取消
+             使用 babel-plugin-transform-remove-strict-mode插件 需要node-sass 蛋疼
+            2. 在webpack打包时忽略需要打包的JS文件（但是注意日后部署的问题）
+            ```
+            "plugins": [
+                "ignore": ["./lib/mui/js/mui.min.js"]
+            ]
+
+            ```
+5. 刚进入照片列表页面滑动条无法正常工作，原始是初始化滑动条的js必须要等待元素加载完成后才能初始化即放到mounted生命周期函数中
+
+6. 由于 mui内部存在一定bug导致 tabbar下的按钮在加载了mui.min.js后 与样式mui-tab-item 样式类冲突 导致 按钮失效。
++ 解决方案：查看 mui-tab-item 样式,以及 对应挂载元素内部样式，复制后，重写，重命名解决冲突问题

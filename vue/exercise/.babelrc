@@ -2,13 +2,17 @@
     "presets": ["env","stage-0"],
     "plugins": ["transform-runtime",
                 //部分引入mimt-ui需要增加此配置并安装npm install babel-plugin-component -D
-                    ["component", 
-                        [
-                            {
+                ["component", [  {
                             "libraryName": "mint-ui",
                             "style": true
-                            }
-                        ]
-                    ]
-                ]
+                            }]
+                ],
+                //使用插件 babel-plugin-transform-remove-strict-mode
+                //取消强制模式时，增加如下配置
+                //需要安装node-sass@4.0.0 暂时安装不上只能配置忽略改文件打包
+                // ["transform-remove-strict-mode"]
+                ],
+    "ignore": [
+        "./lib/mui/js/mui.min.js"
+        ]
 }
