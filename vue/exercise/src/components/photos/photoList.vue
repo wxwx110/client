@@ -6,8 +6,12 @@
 				<!-- 滚动条的高亮是组件内部自动实现的与vue无关 -->
 				<div id="sliderSegmentedControl" class="mui-scroll-wrapper mui-slider-indicator mui-segmented-control mui-segmented-control-inverted">
 					<div class="mui-scroll">						
-						<a :class="['mui-control-item',item.id == -1 ? 'mui-active':'']" 
+						<!-- <a :class="['mui-control-item',item.id == -1 ? 'mui-active':'']" 
 							v-for="item in photoCategory" :key=item.id @click="getPhotoByCateId(item.id)">
+							{{item.title}}
+						</a>			mui可以用@tap绑定事件		 -->
+							<a :class="['mui-control-item',item.id == -1 ? 'mui-active':'']" 
+							v-for="item in photoCategory" :key=item.id @tap="getPhotoByCateId(item.id)">
 							{{item.title}}
 						</a>					
 					</div>
@@ -58,7 +62,8 @@ export default {
     },
     mounted(){
         mui('.mui-scroll-wrapper').scroll({
-                deceleration: 0.0005 //flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
+				deceleration: 0.0005 
+				//flick 减速系数，系数越大，滚动速度越慢，滚动距离越小，默认值0.0006
             });
 	},
 	created(){
