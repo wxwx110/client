@@ -11,7 +11,14 @@ import ShopcarContainer from './components/tabbar/ShopcarContainer.vue'
 //新闻组件
 import NewsList from './components/news/newsList.vue'
 import NewsInfo from './components/news/newsInfo.vue'
+//图片组件
 import PhotoList from './components/photos/photoList.vue'
+import PhotoInfo from './components/photos/photoInfo.vue'
+
+//商品组件
+import GoodList from './components/goods/goodList.vue'
+
+
 
 
 
@@ -29,7 +36,11 @@ var router=new VueRouter({
         {path:'/home/newslist',component : NewsList},
         {path:'/home/info/:id',component:NewsInfo},
         //图片路由
-        {path:'/home/photolist',component:PhotoList }
+        {path:'/home/photolist',component:PhotoList },
+        {path:'/home/photoinfo/:id',component:PhotoInfo},
+        //商品路由
+        {path:'/home/goodslist',component:GoodList}
+
 
 
     ],

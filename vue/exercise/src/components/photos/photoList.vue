@@ -17,13 +17,16 @@
 		<!-- 图片列表 -->
 		<div>
 			<ul class="photo-list">
-				<li v-for="item in imgList" :key=item.id>
+			
+				<router-link tag="li" v-for="item in imgList" :key=item.id :to="'/home/photoinfo/'+item.id" >
 					<img v-lazy="item.imgUrl">
 					<div class="info">
 						<h1 class="info-title">{{item.title}}</h1>
+							
 						<div class="info-body">{{item.resume}}</div>
 					</div>
-				</li>
+				</router-link>
+				
 			</ul>
 		</div>
         
@@ -105,8 +108,8 @@ export default {
 		margin-bottom: 10px;
 		// 相对定位配合 info的绝对定位实现图片信息悬浮层
 		position: relative;
-
-		box-shadow: 0,0,6px,#999;
+		
+		box-shadow: 0 0 9px #999;
 		// 真正的图片
 		img{
 			width: 100%;

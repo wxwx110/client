@@ -43,12 +43,16 @@ Vue.http.options.root='http://xxx.xxxxx';
 //设置POST  时候表单数据的 POST 数据格式 application/x-www-form-urlencoded
 Vue.http.options.emulateJSON=true;
 
-//导入时间插件
+//导入时间插件-node 
 import moment from 'moment';
 //定义全局过滤器
 Vue.filter ('dateFormat',function(dataStr,partten="YYYY-MM-DD HH:mm:ss"){
     return moment(dataStr).format(partten);
 });
+
+//导入缩略图插件
+import VuePreview from 'vue-preview';
+Vue.use(VuePreview);
 
 
 

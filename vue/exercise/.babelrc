@@ -10,9 +10,9 @@
                 //使用插件 babel-plugin-transform-remove-strict-mode
                 //取消强制模式时，增加如下配置
                 //需要安装node-sass@4.0.0 暂时安装不上只能配置忽略改文件打包
-                // ["transform-remove-strict-mode"]
+                 ["transform-remove-strict-mode"]
                 ],
-    "ignore": [
-        "./lib/mui/js/mui.min.js"
-        ]
+    // "ignore": [
+    //     "./lib/mui/js/mui.min.js"
+    //     ]
 }
