@@ -1,5 +1,5 @@
 <template>
-    <div class="app-container">
+    <div class="app-container" >
         <!-- header -->
         <mt-header fixed title="固定在顶部"></mt-header>
         <!-- router-view -->
@@ -40,7 +40,9 @@
 <script>
 
 </script>
- <style scoped>
+ <style  scoped>
+
+
  .app-container{
 	 /* 让子组件不要被top 和tabbar阻挡 */
      padding-top: 40px;
@@ -48,6 +50,7 @@
 	/* 解决动画效果导致底部tabbar位移问题 */
 	 overflow-x:hidden;
  }
+
  .v-enter{
 	opacity: 0;
 	/* 右边进入 */
@@ -100,6 +103,10 @@
     display: block;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+/*解决图片列表界面顶部被其他控件覆盖的问题*/
+.mint-header{
+	z-index: 99;
 }
  </style>
  

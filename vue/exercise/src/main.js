@@ -11,15 +11,23 @@ import router from './router.js'
 
 //导入根组件
 import app from './App.vue'
-//按需导入组件
-import {Header,Swipe, SwipeItem,Button} from 'mint-ui'
-//头部置顶
-Vue.component(Header.name,Header)
-//轮播图
-Vue.component(Swipe.name, Swipe);
-Vue.component(SwipeItem.name, SwipeItem);
-//按钮
-Vue.component(Button.name, Button);
+// //按需导入mint-ui组件
+// import {Header,Swipe, SwipeItem,Button,Lazyload} from 'mint-ui'
+// //头部置顶
+// Vue.component(Header.name,Header)
+// //轮播图
+// Vue.component(Swipe.name, Swipe);
+// Vue.component(SwipeItem.name, SwipeItem);
+// //按钮
+// Vue.component(Button.name, Button);
+
+// //懒加载控件
+// Vue.use(Lazyload);
+//由于mint-ui自身原因，使用按需导入后，会导致lazyload出现无法加载懒加载图标的问题，需要改成全部导入
+
+import MintUI from 'mint-ui';
+import 'mint-ui/lib/style.css';
+Vue.use(MintUI);
 
 //导入mui
 import   './lib/mui/css/mui.min.css'
