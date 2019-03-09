@@ -26,10 +26,17 @@
                            销售价格:￥<span class="now-price">{{goodsInfo.sell_price}}</span>
                        </p>
 
-                       <p>购买数量:<numbox style="display:inline"></numbox></p>
+                       <p>购买数量:<numbox style="display:inline" :max="goodsInfo.stock_quantity" @getcount="getSelectedGoodsCount" ></numbox></p>
                        <p>
                         <mt-button type="primary" size="small">立即购买</mt-button>
                         <mt-button type="danger" size="small" @click="addToShopcar">加入购物车</mt-button>
+                        <!--  
+                            需求，增加数量时，同步修改购物车徽标的数值
+                            1、”加入购物车“按钮属于子组件，徽标属于app.vue组件
+                             2、涉及组件嵌套，父组件并不能直接获得子组件的值
+                             3、解决方法，父组件向子组件传递方法，子组件调用父组件方法，同时将数值作为参数传递
+                        
+                         -->
                        </p>
                     </div>
                 </div>            
@@ -65,7 +72,8 @@ export default {
                 {url:'http://www.qq.com',imgUrl:'../../tmpImages/a2.jpg'},
                  {url:'http://www.baotao.com',imgUrl:'../../tmpImages/a3.jpg'}],
             goodsInfo:{id:101,title:'牛B商品',goods_no:'NO9527', addtime:new Date(),stock_quantity:20,market_price:1000,sell_price:499},
-            ballFlag:false //小球显示与隐藏标识符
+            ballFlag:false, //小球显示与隐藏标识符
+            selectedGoodsCount:1 //用户默认选中数量默认1
 
         }
     },
@@ -135,6 +143,10 @@ export default {
         },
         afterEnter(el){
             this.ballFlag=!this.ballFlag;
+        },
+        getSelectedGoodsCount(count){
+            this.selectedGoodsCount=count;
+            console.log('this.selectedGoodscount :', this.selectedGoodsCount);
         }
     }
 }
