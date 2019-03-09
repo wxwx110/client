@@ -2,7 +2,7 @@
     <div>
         <!-- 轮播图 -->
         <div>
-           <swiper :swipeImages="swipeImages"></swiper>
+           <swiper :swipeImages="swipeImages" :isfull="true"></swiper>
         </div>
         <div class="mui-content">
              <ul class="mui-table-view mui-grid-view mui-grid-9">

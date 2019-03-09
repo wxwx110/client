@@ -18,6 +18,8 @@ import PhotoInfo from './components/photos/photoInfo.vue'
 //商品组件
 import GoodList from './components/goods/goodList.vue'
 import GoodsInfo from './components/goods/goodsInfo.vue'
+import GoodsDesc from './components/goods/goodsdesc.vue'
+import GoodsCMT from './components/goods/goodscmt.vue'
 
 
 
@@ -41,7 +43,9 @@ var router=new VueRouter({
         {path:'/home/photoinfo/:id',component:PhotoInfo},
         //商品路由
         {path:'/home/goodslist',component:GoodList},
-        {path:'/home/goodsinfo/:id',component:GoodsInfo,name:'goodsinfo'}
+        {path:'/home/goodsinfo/:id',component:GoodsInfo,name:'goodsinfo'},
+        {path:'/home/goodsdesc/:id',component:GoodsDesc,name:'goodsdesc'},
+        {path:'/home/goodscmt/:id',component:GoodsCMT,name:'goodscmt'}
 
 
 

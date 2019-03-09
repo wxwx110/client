@@ -84,10 +84,10 @@ export default {
             //$router 是路由导航对象:用它可以使用js代码实现路由的跳转
             //$router的原型对象有路由操作的多种方法
            this.$router.push('/home/goodsinfo/'+itemId);
-           this.$router.push({path:'/home/goodsinfo/'+itemId})
-           this.$router.push({path:'/home/goodsinfo/'+itemId})
-           //{path:'/home/goodsinfo/:id',component:GoodsInfo,name:'goodsinfo'}
-           this.$router.push({name:'goodsinfo', params:{id:id}})
+        //    this.$router.push({path:'/home/goodsinfo/'+itemId})
+        //    this.$router.push({path:'/home/goodsinfo/'+itemId})
+        //    //{path:'/home/goodsinfo/:id',component:GoodsInfo,name:'goodsinfo'}
+        //    this.$router.push({name:'goodsinfo', params:{id:id}})
         },
         getGoodsList(){
             // this.$http.get('url'+this.pageindex).then(
