@@ -54,7 +54,7 @@ export default {
     methods:{
          showPic(){
              console.log($VuePreview);
-            $VuePreview.open(index,photoList);
+            $preview.open(index,photoList);
         },
         getThumbs(){
             // this.$http.get('url'+this.photoId).then(
