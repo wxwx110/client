@@ -2,16 +2,7 @@
     <div>
         <!-- 轮播图 -->
         <div>
-            <mt-swipe :auto="4000">
-                <!-- <mt-swipe-item>1</mt-swipe-item>
-                <mt-swipe-item>2</mt-swipe-item>
-                <mt-swipe-item>3</mt-swipe-item> -->
-                <!-- 组件使用v-for必须设置key -->
-                <mt-swipe-item v-for="item in swipeImages" :key="item.url">
-                   
-                    <a :href="item.url"> <img :src="item.imgUrl" alt=""></a>
-                </mt-swipe-item>
-            </mt-swipe> 
+           <swiper :swipeImages="swipeImages"></swiper>
         </div>
         <div class="mui-content">
              <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -61,7 +52,7 @@
 </template>
 <script>
 import { Toast } from 'mint-ui';
-
+import swiper from '../../components/subcomponents/swiper.vue'
 
 export default {
     data(){
@@ -91,32 +82,14 @@ export default {
                  {url:'http://www.baotao.com',imgUrl:'../../tmpImages/a3.jpg'}
             ];
         }
+    },
+    components:{
+        swiper
     }
 }
 </script>
 <style lang='less' scoped>
-.mint-swipe{
-    height: 200px;
-    //通过这个方式可以设置轮播图每一页的样式1,2,3
-    // .mint-swipe-item:nth-child(1){
-    //     background-color:lightseagreen;
-    // }
-     .mint-swipe-item{
-         &:nth-child(1){
-            background-color:lightseagreen;
-         }
-          &:nth-child(2){
-            background-color:lightcoral;
-         }
-           &:nth-child(3){
-            background-color:lightskyblue;
-         }
-         img{
-             width:100%;
-             height: 100%;
-         }
-    }
-}
+
 //直接修改覆盖原生样式避免优先级问题
 //从浏览器查看并修改
 .mui-grid-view.mui-grid-9{

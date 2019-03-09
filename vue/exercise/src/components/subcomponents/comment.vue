@@ -56,19 +56,19 @@ export default {
     },
      methods:{
         getCMTList(){
-            this.$http.get('url'+this.newsId+"/pageIndex"+this.pageIndex).then((result)=>{
-                    if(result.body.status===0){
-                        //加载更多时保留已读取数据
-                        if(this.pageIndex===1){
-                            this.cmtList=result.body.message;
-                        }else{
-                            this.cmtList=this.cmtList.concat( result.body.message);
-                        }  
-                    }else{
-                        Toast('获取评论列表失败');
-                    }
-                }
-            );
+            // this.$http.get('url'+this.newsId+"/pageIndex"+this.pageIndex).then((result)=>{
+            //         if(result.body.status===0){
+            //             //加载更多时保留已读取数据
+            //             if(this.pageIndex===1){
+            //                 this.cmtList=result.body.message;
+            //             }else{
+            //                 this.cmtList=this.cmtList.concat( result.body.message);
+            //             }  
+            //         }else{
+            //             Toast('获取评论列表失败');
+            //         }
+            //     }
+            // );
         },
         getMoreCmt(){
             this.pageIndex+=1;
@@ -77,17 +77,17 @@ export default {
         addComment(){
             if(this.newComment.trim().length>0){
                 //用户标识，可以通过后台的sessiON获取无需通过前端提交
-                this.$http.post('url'+this.newsId,{newComment:this.newComment}).then(
-                    res=>{
-                        this.newComment='';
-                        if(res.body.result==0){
-                            this.pageIndex=1;
-                            this.getCMTList();
-                        }else{
-                            Toast('提交失败');
-                        }
-                    }
-                )
+                // this.$http.post('url'+this.newsId,{newComment:this.newComment}).then(
+                //     res=>{
+                //         this.newComment='';
+                //         if(res.body.result==0){
+                //             this.pageIndex=1;
+                //             this.getCMTList();
+                //         }else{
+                //             Toast('提交失败');
+                //         }
+                //     }
+                // )
             }else{
                 Toast('评论内容不能为空');
             }

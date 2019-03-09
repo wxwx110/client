@@ -17,6 +17,7 @@ import PhotoInfo from './components/photos/photoInfo.vue'
 
 //商品组件
 import GoodList from './components/goods/goodList.vue'
+import GoodsInfo from './components/goods/goodsInfo.vue'
 
 
 
@@ -39,7 +40,8 @@ var router=new VueRouter({
         {path:'/home/photolist',component:PhotoList },
         {path:'/home/photoinfo/:id',component:PhotoInfo},
         //商品路由
-        {path:'/home/goodslist',component:GoodList}
+        {path:'/home/goodslist',component:GoodList},
+        {path:'/home/goodsinfo/:id',component:GoodsInfo,name:'goodsinfo'}
 
 
 
