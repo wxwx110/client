@@ -1,17 +1,18 @@
 <template>
     <div class="app-container" >
         <!-- header -->
-        <mt-header fixed title="固定在顶部"></mt-header>
+        <mt-header fixed title="固定在顶部">
+			 <span  slot="left" @click="goback" v-show="flag">
+				<mt-button icon="back">返回</mt-button>				
+			</span>
+
+		</mt-header>
         <!-- router-view -->
 		<transition>
 			<router-view>
 
 			</router-view>
 		</transition>
-		 
-
-	
-       
 
         <!-- tabbar -->
         <nav class="mui-bar mui-bar-tab">
@@ -38,7 +39,38 @@
     </div>
 </template>
 <script>
+export default {
+	data(){
+		return{
+			flag:false
+		}
+	},
+	//解决返回按钮在子页面刷新消失的问题
+	created(){
+		console.log('$route :', this.$route.path);
+			if(this.$route.path==='/home'){
+				this.flag=false;
+			}else{
+				this.flag=true;
+			}
+	},
+	methods:{
+		goback(){
+			this.$router.go(-1);
+		},
+	
 
+	},
+	watch:{
+		"$route.path":function(newVal){	
+			if(newVal==='/home'){
+				this.flag=false;
+			}else{
+				this.flag=true;
+			}
+		}
+	}
+}
 </script>
  <style  scoped>
 
