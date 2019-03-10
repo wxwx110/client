@@ -2,7 +2,7 @@
     <div class="shopcar-container">
         <!-- 商品列表区 -->
        <div class="goods-list">
-           <div class="mui-card" v-for="item in goodsList" :key="item.id">
+           <div class="mui-card" v-for="(item,index) in goodsList" :key="item.id">
 				<div class="mui-card-content">
 					<div class="mui-card-content-inner">
 						<mt-switch ></mt-switch>
@@ -12,7 +12,7 @@
                             <p>
                                 <span class="price">￥{{item.sell_price}}</span>
                                 <numbox :initcount="$store.getters.getGoodsCount[item.id]" :goodsId="item.id"></numbox>
-                                <a href="#">删除</a>
+                                <a href="#" @click.prevent="remove(item.id,index)">删除</a>
                             </p>
                         </div>
 					</div>
@@ -61,6 +61,13 @@ export default {
                     )
                 }
                
+        },
+        remove(itemId,index){
+            //ItemId用于删除vuex
+            //index用于删除goodsList
+            this.goodsList.splice(index,1);
+            this.$store.commit('removeFromCar',itemId);
+
         }
     },
     components:{

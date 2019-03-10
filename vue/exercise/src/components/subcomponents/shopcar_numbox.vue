@@ -1,6 +1,6 @@
 <template>
    
-        <div class="mui-numbox" data-numbox-min='1' :data-numbox-max='max' style="height:25px">
+        <div class="mui-numbox" data-numbox-min='1' style="height:25px">
             <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
             <!-- 也可以使用 @change= 监控文本变化 -->
             <!-- <input id="test" class="mui-input-numbox" type="number" v-model="selectedCount"  value="1" /> -->

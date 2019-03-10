@@ -46,12 +46,24 @@ var store=new Vuex.Store({
 
             state.car.some(item=>{
                 if(item.id==goodsInfo.id){
-                    this.count=parseInt(goodsInfo.count);
+                    item.count=parseInt(goodsInfo.count);
                     return true;
                 }
             });
                //更新本地存储
                localStorage.setItem('car',JSON.stringify(state.car));
+        },
+        removeFromCar(state,goodsId){
+       
+            state.car.forEach((item,index)=>{
+                if(item.id==goodsId){
+                    console.log('ok ');
+                    state.car.splice(index,1);
+
+                    return true;
+                }
+            });
+            localStorage.setItem('car',JSON.stringify(state.car));
         }
     },
     getters:{ //this.$store.getters.xxxx
