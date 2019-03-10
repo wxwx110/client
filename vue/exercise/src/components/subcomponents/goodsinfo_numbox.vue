@@ -1,5 +1,5 @@
 <template>
-    <div>
+   
         <div class="mui-numbox" data-numbox-min='1' :data-numbox-max='max'>
             <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
             <!-- 也可以使用 @change= 监控文本变化 -->
@@ -7,7 +7,7 @@
             <input ref="goodscount" id="test" class="mui-input-numbox" type="number" @change="countChange" v-model="selectedCount"  value="1" />
             <button class="mui-btn mui-btn-numbox-plus" type="button">+</button>
         </div>
-    </div>
+   
     <!-- 子组件何时把数据传递给父组件 -->
 </template>
 <script>

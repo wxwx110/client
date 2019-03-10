@@ -113,6 +113,10 @@ export default {
         },
         addToShopcar(){
             this.ballFlag=!this.ballFlag;
+            //生产一个保存到vuex中的购物车对象
+            let goodsInfo={id:this.id,count:this.selectedGoodsCount ,price:this.goodsInfo.sell_price,selected:true}
+
+            this.$store.commit('addToCar',goodsInfo);    
         },
         beforeEnter(el){
             //设置小球位置
