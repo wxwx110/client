@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+    <meta content="telephone=no" name="format-detection" />
+    <title>河长</title>   
+    
+   <style>
+
+    .warp{
+        width: 350px;
+        height: 300px;
+        margin: 0 auto;
+        border :1px solid blue;
+    }
+   .warp .button-container{
+       
+       padding: 0 10px;
+       display: flex;     
+       /*
+       flex-direction属性决定主轴的方向（即项目的排列方向）。
+            ow（默认值）：主轴为水平方向，起点在左端。
+            row-reverse：主轴为水平方向，起点在右端。
+            column：主轴为垂直方向，起点在上沿。
+            column-reverse：主轴为垂直方向，起点在下沿。
+       
+         */
+       flex-direction: row;
+       /* flex-wrap属性定义，如果一条轴线排不下，如何换行 
+                nowrap（默认）：不换行
+                wrap：换行，第一行在上方
+                wrap-reverse：换行，第一行在下方。
+       */
+       flex-wrap:wrap;
+       /*   flex-flow属性是flex-direction属性和flex-wrap属性的简写形式，默认值为row nowrap。 */
+       
+       /* justify-content属性定义了项目在主轴上的对齐方式。 
+                flex-start（默认值）：左对齐               
+                flex-end：右对齐
+                center： 居中
+                space-between：两端对齐，项目之间的间隔都相等。
+                space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
+        */
+       justify-content:space-between;
+       /*
+            align-items属性定义项目在交叉轴上如何对齐。(只用于单行)
+            align-content 与 align-items 一致适用于多行
+                flex-start：交叉轴的起点对齐。
+                flex-end：交叉轴的终点对齐。
+                center：交叉轴的中点对齐。
+                baseline: 项目的第一行文字的基线对齐。
+                stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。
+
+         */
+         align-items:stretch;
+       /* align-content: stretch; */
+       text-align: center;
+   }
+.linkbutton{
+        /* 项目属性用于flex内部的项目特性*/
+       /* order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。 
+        flex-grow属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。默认0
+       flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。默认1
+
+       flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。
+       浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，即项目的本来大小。
+       它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。
+
+       flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。
+       该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。
+
+       align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，
+        表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
+
+
+       */
+
+}
+   .warp .button-container img{
+       width: 60px;
+       height: 60px;
+   }
+
+   </style>
+
+</head>
+<body>
+    <div id="app">
+       
+       <!-- 按钮 -->
+        <div class="index-boot">
+            <div class="warp">
+                    <div class="button-container">
+                            <div class="linkbutton">                                
+                                    <a href="#">
+                                        <img src="./index/xw.png" alt="">
+                                        <div class="linkbutton-title">新闻资讯</div>
+                                    </a>
+                                </a>
+                            </div>
+                            <div class="linkbutton">                                     
+                                <a href="#">
+                                    <img src="./index/hl.png" alt="">                                  
+                                    <div class="linkbutton-title">河湖信息</div>
+                                </a>
+                            </div>                                    
+                            <div class="linkbutton">                               
+                                <a href="#">
+                                        <img src="./index/hz.png" alt="">
+                                        <div class="linkbutton-title">河长名单</div>
+                                    </a>                                   
+                            </div>
+                            <div class="linkbutton">
+                                <a href="#">                                
+                                    <img src="../index/tf.png" alt="">
+                                    <div class="linkbutton-title">台风路径</div>
+                                </a>
+                            </div>
+                            <div class="linkbutton" >
+                                <a href="#">
+                                    <img src="./index/ts.png" alt="">
+                                    <div class="linkbutton-title">投诉意见</div>
+                                </a>
+                            </div>
+                        </div> 
+                </div>          
+        </div>
+   
+
+  
+</body>
+</html>
