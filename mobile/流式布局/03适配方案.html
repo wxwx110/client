@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">   
-    <meta name="viewport"
+    <meta charset="UTF-8">  
+    <!-- viewport配置文件最好在编码文件下方 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=1">
+    
     <title>流式布局</title>
     <style>
         body{
@@ -10,7 +12,8 @@
             margin: 0;
         }
         .box{
-            width:1000px;
+            /* 宽度按照百分比适配 */
+            width:100%;
             height: 500px;
             background: pink;
         }
@@ -27,12 +30,13 @@
 
         2、<meta name="viewport"> 设置处理适配方案放在head且跟在编码设置后面
                 viewport 配置功能：
-                    1、宽度
-                    2、高度
-                    3、默认缩放比率
-                    4、是否允许用户自行缩放
-                    5、最大缩放比率
-                    6、最小缩放比率
+                    1、width 宽度 可以用数字设置不用带单位默认是px,特殊参数device-width 当前设备宽度
+                    2、height 高度
+                    3、initial-scale 默认缩放比率用数字标识，放大比率2.0 表示放大两倍
+                    4、user-scalable 是否允许用户自行缩放  yes or no 或者 1 or 0
+                    5、maxnum-scale 最大缩放比率
+                    6、minnum-scale 最小缩放比率
+                    <meta name="viewport" content=""> 在content中进行配置
      -->
     <div class="box">
         内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g内容内容g
