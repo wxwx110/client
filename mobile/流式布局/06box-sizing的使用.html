@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable-0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    *{
+        margin: 0;
+        padding:0;
+
+    }
+    .box{
+        /* 这个样式尺寸有可能会溢出屏幕宽度导致出现滚动条
+            这个width指的是内容宽度
+            此时无法通过百分比设置，保证屏幕不出现滚动条
+        */
+        width: 100%;
+        border:20px solid red;
+        height: 1000px ;
+        /* 通过增加改定义改变盒子的宽度包含边框宽度即可避免滚动条的问题
+            有效防止内容溢出
+        */
+        box-sizing: border-box;
+    }
+    </style>
+</head>
+<body>
+    <!-- 
+        移动端以流式布局为主即，百分比布局
+        存在的问题
+        1、无法准确记算容器的尺寸
+     -->
+    <div class="box"></div>
+</body>
+</html>
