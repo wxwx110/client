@@ -84,3 +84,13 @@ input,textarea {
 .m_b10{
     margin-bottom: 10px;
 }
+
+/* 使用精灵图的公共样式 */
+/*以icon_开头*/
+[class^="icon_"]
+/*包含icon_而且前面有一个空格*/
+,[class*=" icon_"]{
+    background-repeat: no-repeat;
+    background-image:url("../images/sprites.png");
+    background-size:200px 200px;
+}

@@ -31,13 +31,22 @@
     position: relative;
 }
 
-.jd_search .jd_search_box .icon-logo{
+.jd_search .jd_search_box .icon_logo{
     /* 定位logo */
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 10px;
+    top: 4px;
     width: 60px;
-    height: 40px;
+    height: 36px;
+    /* logo图片处理 
+        由于精灵图的大小远大于实际的留空需要对图片进行特殊处理
+         /200px 200px; 表示对图片进行压缩到200*200(原图400*400)
+         压缩后 定位坐标应由 0 -210 变更为 0 -105
+         通过两倍图的压缩,提高图片清晰度
+    */
+    /* 通过公共样式定义其他功能 */
+    /* background: url("../images/sprites.png") no-repeat 0 -105px / 200px 200px; */
+    background-position: 0 -105px;
 }
 .jd_search .jd_search_box .login{
     /* 定位 登录 */
@@ -55,7 +64,7 @@
     /* 空出右侧登录按钮的空间 */
     padding-right: 50px;
     /* 空出左侧logo的空间 */
-    padding-left: 60px;
+    padding-left: 70px;
     /* 配合icon_search定位显示位置 */
     position: relative;
 }
@@ -64,10 +73,12 @@
     width: 20px;
     height: 20px;
     position:absolute;
-    /* paddingleft 50 +20 */
-    left:70px;
+    /* paddingleft 70 +向右移动量20 */
+    left:90px;
     top:10px;
-    background-color: blue;
+    /* 通过公共样式定义效果 */
+    /* background: url("../images/sprites.png") no-repeat -60px -109px / 200px 200px; */
+    background-position: -60px -109px;
 }
 .jd_search .jd_search_box form input{
     /* 查询文本框 */
