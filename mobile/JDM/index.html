@@ -9,8 +9,48 @@
     <link rel="stylesheet" href="css/index.css">
 </head>
 <body>
-    
-<script src="./css/base.css"></script>
-<script src="./css/idnex.css"></script>
+<!-- 
+    1、最大宽度设置成640px
+    2、设计稿PSD得尺寸就是640px
+    3、目的：当设备尺寸比设计稿不至于失真
+    4、640px得尺寸设计稿，根据主流设备尺寸有关
+    5、750PX得设计稿，参考iphone6
+    6、最小宽度320px，保证最小得宽度320px不让页面错乱
+ -->
+<div class="jd_container">
+    <!-- 顶部搜索 -->
+    <header class="jd_search">
+        <!-- 
+            jd_search进行fix定位后，并不能自动居中，并于jd_container 重合
+            解决办法：
+            再其内部声明jd_search_box利用这个div通过marin 0 auto实现定位居中
+            jd_search还是原来得位置不变，但是只作为框架定位控件
+            实际显示得渲染部分由jd_search_box实现
+            
+         -->
+        <div class="jd_search_box">
+                <a href="" class="icon_logo"></a>
+                <form action="">
+                    <span class="icon_search"></span>
+                    <input type="text" placeholder="占位符">        
+                </form>
+                <a href="" class="login">登录</a>
+        </div>
+        
+    </header>
+    <!-- 轮播图 -->
+    <div class="jd_banner"></div>
+    <!-- 导航栏 -->
+    <nav class="jd_nav"></nav>
+    <!-- 产品区块 -->
+    <div class="jd_product">
+        <section class="jd_product_box"></section>
+        <section class="jd_product_box"></section>
+        <section class="jd_product_box"></section>
+        <section class="jd_product_box"></section>
+    </div>
+</div>
+<script src="./js/common.js"></script>
+<script src="./js/index.js"></script>
 </body>
 </html>

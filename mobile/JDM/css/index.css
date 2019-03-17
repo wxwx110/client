@@ -1,0 +1,86 @@
+/* 整体布局 */
+.jd_container{
+    min-width: 320px;
+    max-width: 640px;
+    width: 100%;
+    margin: 0 auto;
+    background: pink;
+    height: 1000px;
+}
+
+/* 顶部搜索 （双飞翼/圣杯 布局）*/
+.jd_search{
+    /* 定义顶部定位框架 */
+    width: 100%;
+    height: 40px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    
+}
+.jd_search .jd_search_box{
+    /* 定义顶部实际渲染头部页面 */
+    height: 40px;
+    min-width: 320px;
+    max-width: 640px;
+    width: 100%;
+
+    background: rgba(201,21,35,0.85);
+    margin: 0 auto;
+    /* 配合logo 和查询按钮得定位 */
+    position: relative;
+}
+
+.jd_search .jd_search_box .icon-logo{
+    /* 定位logo */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 60px;
+    height: 40px;
+}
+.jd_search .jd_search_box .login{
+    /* 定位 登录 */
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    color:#fff;
+}
+.jd_search .jd_search_box form{
+    /* 查询文本框居中配置 */
+    /* 空出右侧登录按钮的空间 */
+    padding-right: 50px;
+    /* 空出左侧logo的空间 */
+    padding-left: 60px;
+    /* 配合icon_search定位显示位置 */
+    position: relative;
+}
+
+.jd_search .jd_search_box form .icon_search{
+    width: 20px;
+    height: 20px;
+    position:absolute;
+    /* paddingleft 50 +20 */
+    left:70px;
+    top:10px;
+    background-color: blue;
+}
+.jd_search .jd_search_box form input{
+    /* 查询文本框 */
+    /* 百分比,记算方式基于父容器的content记算 */
+    width:100%;
+    /* 父容器总高度40px */
+    height: 30px;
+    margin-top: 5px;
+    background: #fff;
+    border-radius: 20px;
+    /* 移动占位符 */
+    padding-left: 40px;
+}
+/* *{
+    border :1px solid red;
+} */
