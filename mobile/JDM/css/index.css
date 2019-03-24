@@ -1,11 +1,17 @@
+body{
+    /* 底板灰色 */
+    background:#f5f5f5
+}
+
+
 /* 整体布局 */
 .jd_container{
     min-width: 320px;
     max-width: 640px;
     width: 100%;
     margin: 0 auto;
-    background: pink;
-    height: 1000px;
+    /* background: pink;
+    height: 1000px; */
 }
 
 /* 顶部搜索 （双飞翼/圣杯 布局）*/
@@ -162,3 +168,177 @@
 /* *{
     border:1px solid blue;
 } */
+
+/* 导航栏目 */
+.jd_nav{
+    width:100%;
+    background: #fff;
+}
+.jd_nav ul{
+    width:100%;
+    padding-top:10px;
+    border-bottom:1px solid #ccc;
+}
+.jd_nav ul li{
+    /* 每行四个 */
+    width:25%;
+    float :left;
+  
+}
+.jd_nav ul li a{
+    display: block;
+    width:100%;
+   
+}
+.jd_nav ul li a img{
+    display:block;
+    /* 图片原大小80px 2倍图压缩 */
+   
+    width:40px;
+    height: 40px;
+    margin: 0 auto;
+}
+.jd_nav ul li a p{
+   
+    text-align: center;
+    font-size: 12px;
+    color:#666;
+    padding:5px 0;
+   
+}
+
+
+/* 产品区块 */
+.jd_product{
+    padding:0 5px;
+
+}
+/* 产品盒子 */
+.jd_product_box{
+    margin-top: 10px;
+    box-shadow: 0 0 2px #ccc;
+    min-height: 200px;
+    background: #fff;
+}
+.jd_product_box .tit{
+    height: 34px;
+    line-height: 34px;
+    border-bottom: 1px solid #ddd;
+}
+.jd_product_box .tit.nb{
+    border:none;
+}
+.jd_product_box .tit h3{
+    font-weight: normal;
+
+    /* 配合伪元素的定位 */
+    position: relative;
+
+    padding-left: 23px;
+}
+.jd_product_box .tit h3::before{
+ 
+    content:"";
+    width:3px;
+    height: 12px;
+    background-color: #d8505c;
+       /* 为元素默认行内元素 据对定位后变成块级元素*/
+    position:absolute;
+    left:10px;
+    top:11px;
+}
+
+
+/* 秒杀 */
+.sk .icon{
+    width: 16px;
+    height: 20px;
+    float: left;
+    margin-left: 10px;
+    margin-top:7px;
+    background: url("../images/seckill-icon.png") no-repeat center/16px 20px;
+}
+.sk .name{
+    float: left;
+    margin-left: 16px;
+    font-size:  #d8505c;
+}
+.sk .time{
+    float: left;
+    margin-left: 10px;
+}
+.sk .time span{
+    float: left;
+    width:16px;
+    height: 16px;
+    line-height: 16px;
+    text-align: center;
+    color:#fff;
+    background: #333;
+    margin-left: 3px;
+    margin-top:9px;
+}
+
+/* 选中第3个第6个元素 */
+.sk .time span:nth-child(3n){
+    background: #fff;
+    width:3px;
+    color: #333;
+}
+.sk .pro{
+    width:100%;
+}
+.sk .pro li{
+    width:33.33%;
+    float: left;
+    padding: 10px;
+}
+.sk .pro li a{
+    display: block;
+    border-right: 1px solid #ddd;
+}
+.sk .pro li:last-child a{
+    border:none;
+}
+.sk .pro li a img{
+    display: block;
+    margin:0 auto;
+    /* 图片为响应式，不设定固定像素宽度 */
+    width:64%;
+}
+.sk .pro li p{
+    text-align: center;
+    font-size: 12px;
+    padding:5px 0;
+}
+.sk .pro li .nowPrice{
+    color:#d8505c;
+}
+.sk .pro li .oldPrice{
+    color:#666;
+    /* 删除线 */
+    text-decoration: line-through;
+}
+
+/* 组合样式的使用 */
+
+.w_50p{
+    width:50%;    
+}
+
+.w_50p img{
+    display: block;
+    width:100%;
+}
+.bl{
+    border-left: 1px solid #ddd;
+}
+.br{
+    border-right: 1px solid #ddd;
+}
+.bb{
+    border-bottom: 1px solid #ddd;
+}
+
+
+
