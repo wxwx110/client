@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scale=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* body{
+            font-size: 100px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- div高度353 img高度350 图片间隙会随着body font定义的大小改变 -->
+    <div>
+        <!-- g伸出的尾巴会导致容器被撑大
+            img 默认样式inline-block对齐方式默认为基线对齐会与X对齐
+            字母g会超出基线，导致图片可能产生下间隙
+            解决方式：1、font-siez:0;
+                           2、增加img样式display:block;
+                           3、设置img vertical-align 垂直对齐方式为任意方式
+        -->
+        <img src="../JDM/images/l1.jpg" alt="">agxz 
+    </div>
+</body>
+</html>

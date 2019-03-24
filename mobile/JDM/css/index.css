@@ -16,7 +16,8 @@
     position: fixed;
     left: 0;
     top: 0;
-    
+    /* 提高显示层级避免被轮播图覆盖 */
+    z-index: 1;
 }
 .jd_search .jd_search_box{
     /* 定义顶部实际渲染头部页面 */
@@ -49,7 +50,7 @@
     background-position: 0 -105px;
 }
 .jd_search .jd_search_box .login{
-    /* 定位 登录 */
+    /* 定位 登录 */ 
     position: absolute;
     right: 0;
     top: 0;
@@ -92,6 +93,72 @@
     /* 移动占位符 */
     padding-left: 40px;
 }
+
+/* 顶部搜索 （双飞翼/圣杯 布局） end */
+
+
+/* 轮播图布局 */
+.jd_banner{
+    width:100%;
+    /* 隐藏横排两边多出的图片 */
+    overflow: hidden;
+    position: relative;
+}
+/* 图片部分 */
+/*  */
+.jd_banner ul:first-child{
+    /* 需要放下10张图片X方向 */
+    width: 1000%;
+
+    /* 将图片向左移动一张移到第一张显示 */
+    transform: translateX(-10%);
+    /*兼容 */
+    -webkit-transform: translateX(-10%);
+}
+.jd_banner ul:first-child li{
+    /* 与设备宽度持平 10张图 父容器宽度1000% */
+    width:10%;
+    float:left;
+}
+.jd_banner ul:first-child a{
+    display: block;
+    /*与li保持一致 */
+    width:100%
+}
+.jd_banner ul:first-child img{
+    /* 去除图片的下间隙
+     */
+    display: block;
+    width:100%;
+
+}
+
+/* 按钮部分 */
+.jd_banner ul:last-child{
+    position: absolute;     
+    left:50%;
+    /* 16px*8   -  第一个的marginleft 10 */
+    width:118px;
+    height: 6px;
+    /* left50%后左移动，让控件视觉居中 */
+    margin-left:-59px;
+    bottom:6px;
+}
+.jd_banner ul:last-child li{
+    width:6px;
+    height: 6px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    margin-left: 10px;
+    float: left;
+}
+.jd_banner ul:last-child li:first-child{
+    margin-left:0;
+}
+
+.jd_banner ul:last-child li.now{
+    background: #fff;
+}
 /* *{
-    border :1px solid red;
+    border:1px solid blue;
 } */
