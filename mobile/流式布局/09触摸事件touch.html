@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding:0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 
+        1.touche是移动端一组事件
+            touchstart--触屏
+            touchmove--话哦的那个
+            touchend --离开触屏
+            touchcancel--滑动被迫终止，比如游戏中来电，消息弹框
+     -->
+     <!-- 
+        1、绑定事件：推荐方式addEventListener
+        2、事件对象:touchEvent 
+             重点关注对象 TouchList---触摸点的集合（一个手指一个点）
+                changedTouches 改变后的触摸点集合（开始触屏从无到有，移动开始到移动结束，离开屏幕从有到无）
+                targetTouches  当前元素的触摸点集合（手指触摸的element)
+                touches         页面上所有触摸点集合 （当前页面上所有的触摸点）
+        3、触摸点在每个事件触发的时候记录情况
+            changedTouches 每个事件都会记录
+            targetTouches，touches 离开屏幕事件，内无记录
+        4、滑动实现的原理：
+            让触摸的元素随着手指的滑动做位置的改变（即两个坐标之间的距离）
+            位置的改变，需要当前手指的坐标
+            在每一个触摸点中，会记录当前触摸点的坐标 e.touches[0第一个触摸点
+            clientX clientY :基于浏览器窗口(视口)的坐标组
+            pageX pageY  :基于页面（视口）其实与clientX,Y几乎一致
+            screenX screenY : 基于终端屏幕的坐标
+      -->
+      <div class="box">
+
+      </div>
+      <script>
+          window.onload=function(){
+              var box=document.querySelector(".box");
+              box.addEventListener('touchstart',function(e){
+                    console.log(e);
+                    console.log(e.touches[0].clientX);
+                   //console.log('start');
+              });
+              box.addEventListener('touchmove',function(e){
+                 
+                   console.log('move');
+              });
+              box.addEventListener('touchend',function(e){
+                 
+                   console.log('end');
+              });
+              box.addEventListener('click',function(e){
+                  console.log( e);
+                   console.log('click');
+              });
+          }
+      </script>
+</body>
+</html>
