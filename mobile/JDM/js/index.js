@@ -38,10 +38,10 @@ var search=function(){
               opacity=0.85;
         }
       
-      
-        searchBox.style.background='rgba(201,21,35,'+opacity+')'
+        // 注意通过style.background进行样式赋值时候，最后不能跟分号
+        //searchBox.style.background='rgba(201,21,35,'+opacity+');'
+        searchBox.style.background='rgba(201,21,35,'+opacity+')';  
     
-      // searchBox.style.background='red';
     }
 }
 
