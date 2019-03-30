@@ -76,7 +76,7 @@ var banner=function(){
         imageBox.style.webkitTransform='translateX('+translateX+'px)';//兼容处理
     }
 
-    // 轮播图的核心index;
+    //1--- 轮播图的核心index;
     //图片序号
     var index=1;
     var timer=setInterval(function() {
@@ -119,15 +119,44 @@ var banner=function(){
         // 在这个位置调用由于前面得业务逻辑导致index得取值范围是1-8
         setPoint(index-1);
     });
-    // 设置小点跟踪
+    // 2---设置小点跟踪
     var setPoint=function(index){
         for (let index = 0; index < points.length; index++) {
             let element = points[index];
-            element.classList.remove('now');
-            
+            element.classList.remove('now');            
         }
         points[index].classList.add('now');
     }
+
+    // 3---滑动处理
+    var startX=0;
+    var distanceX=0;
+    imageBox.addEventListener('touchstart',function(e){
+        // 手指触摸后清除定时器
+        clearInterval(timer);
+       
+        //记录其实位置X坐标
+         startX=e.touches[0].clientX;
+    });
+
+    imageBox.addEventListener('touchmove',function(e){
+        // 记录滑动过程中得X坐标
+        var moveX=e.touches[0].clientX;
+        // 计算位移--有正负方向
+        distanceX=moveX-startX;
+        // 记算目标元素得位移
+        //元素将要定位=当前定位+手指移动的距离
+        var translatex=-index*width+distanceX;
+
+        // 清除过度防止出现滑动延迟
+        removeTransition();
+        // 滑动-》元素随手指移动
+        setTranslateX(translatex);
+    });
+
+    imageBox.addEventListener('touchend',function(e){
+
+    });
 
  
 
