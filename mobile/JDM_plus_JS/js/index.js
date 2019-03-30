@@ -114,7 +114,20 @@ var banner=function(){
         }
            
         //console.log('transitionend')
+
+        // 根据索引设置点
+        // 在这个位置调用由于前面得业务逻辑导致index得取值范围是1-8
+        setPoint(index-1);
     });
+    // 设置小点跟踪
+    var setPoint=function(index){
+        for (let index = 0; index < points.length; index++) {
+            let element = points[index];
+            element.classList.remove('now');
+            
+        }
+        points[index].classList.add('now');
+    }
 
  
 
