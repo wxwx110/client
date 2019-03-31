@@ -50,7 +50,8 @@ var banner=function(){
     //2、自动轮播时小点随动 ---索引切换
     //3、触屏后停止自动轮播 ---touch滑动
     //4、轮播随触屏手指左右滑动 touch事件
-    //5、当滑动不足换图片时（是否超过50%），自动恢复当前显示图片--过度，滑动方向
+    //5、滑动结束的时候，如果滑动距离不超过屏幕的1/3 吸附回去  并附带过度效果
+    //6、滑动结束的时候，如果滑动的距离超过屏幕的1/3，根据滑动的方向切换图片
 
     // 轮播图
     var banner=document.querySelector('.jd_banner');
@@ -131,6 +132,7 @@ var banner=function(){
     // 3---滑动处理
     var startX=0;
     var distanceX=0;
+    var isMove=false;
     imageBox.addEventListener('touchstart',function(e){
         // 手指触摸后清除定时器
         clearInterval(timer);
@@ -140,6 +142,8 @@ var banner=function(){
     });
 
     imageBox.addEventListener('touchmove',function(e){
+        //增加程序严谨性
+        isMove=true;
         // 记录滑动过程中得X坐标
         var moveX=e.touches[0].clientX;
         // 计算位移--有正负方向
@@ -155,6 +159,47 @@ var banner=function(){
     });
 
     imageBox.addEventListener('touchend',function(e){
+        if(isMove){
+            // 滑动结束处理
+            // 要使用移动的距离
+            if(Math.abs(distanceX)<width/3){
+                // 如果移动距离没超过三分之一
+                // 媳妇回去
+                addTransition();
+                setTranslateX(-index*width);
+            }else{
+                //超过三分之一后切换
+                
+                if(distanceX<0){
+                    // 上一张
+                    index--;
+
+                }else{
+                    // 下一张
+                    index++;
+                }
+                // 根据index进行动画移动
+                addTransition();
+                setTranslateX(-index*width);
+            }
+        }
+        // 重要参数重置
+        startX=distanceX=0;
+        isMove=false;
+        // 启动定时器
+        clearInterval(timer);
+        timer==setInterval(function() {
+            index++;
+            // 动画添加对象是imageBox
+            // 加过度
+            addTransition();
+            // 做位移
+            //-index*width(向左移动index倍的banner宽度)
+             setTranslateX(-index*width);            
+    
+        }, 3000);
+        
+
 
     });
 
