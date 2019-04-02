@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding:0;
+        }
+        .box{
+            width: 200px;
+            height: 200px;
+            background: pink;
+            float: left;
+        }
+    </style>
+</head>
+
+<body>   
+      <div class="box">
+      </div>
+      <!-- <script src="js/fastclick.min.js">  </script>  
+     
+     <script>
+        //  当dom加载完成后加载，在后续正常使用click即可
+         document.addEventListener('DOMContentloaded',function(){
+             FastClick.attach(document.body);
+         },false)
+     </script> -->
+
+      <script>
+            // 1、tap事件，轻击，轻触 （响应速度快）但是需要封装（zepto.js 直接封装好tap事件）
+            // 2、移动端也有click事件在移动端为了区分是滑动还是点击，click点击延迟300ms)
+            // 3、影响用户体验，响应太慢
+            // 4、解决方方案：
+            //      4.1使用tap事件（不是移动端原生事件，通过touch相关事件衍生--了解原理
+            //      4.2 使用一个叫fastclick.js 提供移动端click响应速度
+            window.onload=function(){
+                // 使用tap事件
+                // 1、响应速度比click要快150ms
+                
+                var startTime=0;
+                var isMove=false;
+                var bindTapEvent=function(domObject,callback){
+                    // 事件执行顺序
+                    // 谷歌浏览器模拟时看不到300ms的效果只有在手机上才有延迟效果
+                    domObject.addEventListener('touchstart',function(e){
+                        //console.log('touchstart');
+                        startTime=Date.now();
+                    });
+                    domObject.addEventListener('touchmove',function(e){
+                       // console.log('touchmove')
+                       isMove=true;
+                    })
+                    domObject.addEventListener('touchend',function(e){
+                        //console.log('touchend')
+                        if(Date.now()-startTime<150 && !isMove){
+                            callback && callback.call(this,e);
+                        }
+
+                        var startTime=0;
+                        var isMove=false;
+                    });
+                    domObject.addEventListener('click',function(e){
+                        console.log('click')
+                    });
+                }
+                bindTapEvent(document.querySelector('.box'),function(e){
+                    console.log(this);
+                    console.log(e);
+                    console.log('tap');
+                });
+            }
+      </script>
+</body>
+</html>
