@@ -219,9 +219,8 @@ var downTime=function(){
         // 格式化time;
         var h=Math.floor(time/3600);
         var m=Math.floor(time%3600/60);
-        var s=Math.floor(time%60);
-     
-        console.log(timeSpans[1])
+        var s=Math.floor(time%60);     
+       
         timeSpans[0].innerHTML=Math.floor(h/10);
        
         timeSpans[1].innerHTML=h%10;        
