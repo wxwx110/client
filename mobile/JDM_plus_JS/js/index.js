@@ -206,6 +206,37 @@ var banner=function(){
  
 
 }
+// 倒计时
+// 正常开发来说，时间需要统一调度处理不能由客户端 自行new
 var downTime=function(){
+    // 倒计时的时间
+    var time=2*60*60 ; //2小时
+
+    var timeSpans=document.querySelector('.time').querySelectorAll('span');
+    // 每一秒更新显示时间
+    var timer=setInterval(function() {
+        time--;
+        // 格式化time;
+        var h=Math.floor(time/3600);
+        var m=Math.floor(time%3600/60);
+        var s=Math.floor(time%60);
+     
+        console.log(timeSpans[1])
+        timeSpans[0].innerHTML=Math.floor(h/10);
+       
+        timeSpans[1].innerHTML=h%10;        
+        
+      
+        timeSpans[3].innerHTML=Math.floor(m/10);
+        timeSpans[4].innerHTML=m%10;
+
+        timeSpans[6].innerHTML=Math.floor(s/10);
+        timeSpans[7].innerHTML=s%10;
+
+        if(time<=0){
+            clearInterval(timer);
+        }
+
+    }, 1000);
 
 }
