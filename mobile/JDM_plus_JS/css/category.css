@@ -1,0 +1,165 @@
+html,body{
+    height: 100%;
+}
+.jd_layout{
+    width: 100%;
+    height: 100%;
+
+}
+/* 顶部通栏 */
+.jd_topBar{
+    width: 100%;
+    height: 45px;
+    border-bottom: 1px solid #ccc;
+    /* 渐变色效果图 */
+    background: url("../images/header-bg.png") 0 0 / 1px 44px;
+
+    /* 让顶部通栏脱离文档流，方便其他部分沾满页面 */
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: 1;
+} 
+
+.jd_topBar a{
+    /* 让控件中央有一个20*20的内容 */
+    width: 40px;
+    height: 44px;    
+    padding: 12px 10px;
+
+
+    position: absolute;
+    top:0;
+    /* border:3px dashed yellow; */
+    /* 背景图默认是从padding 开始平铺  */
+
+    /* 修改背景图平铺的起点 从内容部分开始*/
+    background-origin:content-box;
+    /* 设置裁剪，可以间去内容部分意外的背景图
+        用这个方式的目的是为了增大按钮面积的同时
+        不显示其他内容
+        border-box边框以外被裁剪
+        padding-box内边距以外被裁剪
+        content-box内容以外被裁剪
+        裁剪只针对背景图
+    */
+    background-clip: content-box;
+
+}
+
+.jd_topBar .icon_back{
+    left:0;
+    background-position: -20px 0;
+}
+
+.jd_topBar .icon_menu{
+    right:0;
+    background-position: -60px 0;
+}
+.jd_topBar form{
+    width: 100%;
+    padding: 0 40px;
+}
+.jd_topBar input{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    margin-top: 7px;
+    padding: 0 10px;
+
+}
+
+/* 剩余部分 */
+.jd_main{
+    width:100%;
+    height:100%;
+    /* 流出顶部空间 */
+    padding-top: 45px;
+}
+.jd_main .jd_cateLeft{
+    background : cadetblue;
+    width: 90px;
+    height: 100%;
+    float:left;
+    overflow: hidden;
+}
+.jd_cateLeft ul{
+    width:90px;
+}
+
+.jd_cateLeft li{
+    width:90px;
+    height: 50px;
+    line-height: 50px;
+    background: #f3f4f5;
+    font-size: 12px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+.jd_cateLeft li.now{
+    border-right:none;
+    background: #fff; 
+}
+.jd_cateLeft li a{
+    display: block;
+    width: 100%;
+}
+.jd_cateLeft li.now a{
+   color: #d8505c;
+}
+
+.jd_main .jd_cateRight{
+    /* 为实现左右布局
+        让div绝缘不受其他浮动元素影响
+        也可可以使用flex布局
+    */
+    overflow: hidden;   
+    height: 100%;
+
+}
+.jd_cateRight_box{
+    padding: 0 10px;
+}
+.jd_cateRight_box .banner{
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+}
+.jd_cateRight_box .banner img{
+    width:100%;
+    display: block;
+}
+.jd_cateRight_box .hot{
+    margin-top:10px;
+}
+.jd_cateRight_box .hot h3{
+    font-size: 10px;
+}
+.jd_cateRight_box .hot ul{
+    width:100%
+}
+.jd_cateRight_box .hot ul li{
+    
+    width:33.3333%;
+    float: left;
+    padding-top: 5px;
+}
+.jd_cateRight_box .hot ul li a{
+    display: block;
+    width: 100%;
+}
+.jd_cateRight_box .hot ul li a img{
+    width: 62px;
+    height: 62px;
+    display: block;
+    margin: 0 auto;
+}
+.jd_cateRight_box .hot ul li a p{
+    font-size: 12px;
+    text-align: center;
+    padding: 5px 0;
+}
+
