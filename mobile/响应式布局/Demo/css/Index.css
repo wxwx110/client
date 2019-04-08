@@ -15,23 +15,39 @@ a:hover{
 /* 自定义字体图标 */
 /* 1、通过 @font-face  定义字体*/
 @font-face {
-    /* 声明自定义字体名称 */
-    font-family: "wjs";
-    /* 引入字体文件(约束某一段字符代码表示什么图表) */
-    src:
-    url(../fonts/MiFie-Web-Font.svg) format('svg'),
-    url(../fonts/MiFie-Web-Font.eot) format('embedded-opentype'),
-    url(../fonts/MiFie-Web-Font.ttf) format('truetype'),
-    url(../fonts/MiFie-Web-Font.woff) format('woff');
+  /*2.申明自己的字体名称*/
+  font-family: 'wjs';
+  /*3.引入字体文件（约束某一段字符代码什么图案）*/
+  src:
+  url(../fonts/MiFie-Web-Font.svg) format('svg'),
+  url(../fonts/MiFie-Web-Font.eot) format('embedded-opentype'),
+  url(../fonts/MiFie-Web-Font.ttf) format('truetype'),
+  url(../fonts/MiFie-Web-Font.woff) format('woff');
 }
+/*4.怎么使用维护性更好*/
 .wjs_icon{
-    font-family: wjs;
+  font-family: wjs;
 }
 .wjs_icon_phone::before{
-    content: "\e908";
+  content: "\e908";
 }
 .wjs_icon_tel::before{
-    content: "\e909";
+  content: "\e909";
+}
+.wjs_icon_logo::before{
+  content: "\e920";
+}
+.wjs_icon_logo_name::before{
+  content: "\e93e";
+}
+.wjs_icon_dollar::before{
+  content: "\e903";
+}
+.wjs_icon_clock::before{
+  content: "\e906";
+}
+.wjs_icon_video::before{
+  content: "\e905";
 }
 
 /* modal css */
@@ -103,4 +119,147 @@ a:hover{
    /* 图片宽度的一半 */
    margin-left:-60px;
    border-top:none;
+   z-index: 1000;
 }
+/* 导航条
+    为了保证自己修订得样式可以完全得覆盖bootstrap样式
+    可以从源码种拷贝对应组件的样式组，再这个基础上进行修改
+    利用css后加载覆盖先加载的原理，修改组件样式。
+    而且可以定位到原组件内的所有选择器
+
+    修改 .navbar-default 变成 wjs_nav
+    注意覆盖时需要保留后面的空格，以免造成选择器失效 
+    这样就可以自定义自己的样式
+
+    但是有一些没用到的选择器，可能出现代码冗余
+    建议可以保留方便后续修改。
+*/
+.wjs_nav {   
+    margin-bottom: 0;
+    border-color: #e7e7e7;
+    border:none;
+    border-bottom: 1px solid #ccc;
+  }
+
+  .wjs_nav .wjs_icon_logo{
+    font-size: 50px;
+    color:#e92322;
+    vertical-align: middle;
+  }
+  .wjs_nav .wjs_icon_logo_name{
+    font-size: 36px;
+    color: #333;
+    vertical-align: middle;
+  }
+  .wjs_nav .navbar-brand {
+    color: #777;
+    /* 
+    根据原来
+    .navbar-brand {
+        float: left;
+        height: 50px;
+        padding: 15px 15px;
+        font-size: 18px;
+        line-height: 20px;
+    }
+    根据样式分析此处需要加高的同时需要调整 line-height
+    */
+    height: 80px;
+    line-height: 50px;
+  }
+  .wjs_nav .navbar-brand:hover,
+  .wjs_nav .navbar-brand:focus {
+    color: #5e5e5e;
+    background-color: transparent;
+  }
+  .wjs_nav .navbar-text {
+    color: #777;
+  }
+  .wjs_nav .navbar-nav > li > a {
+    color: #777;
+    height: 80px;
+    line-height: 50px;
+  }
+  .wjs_nav .navbar-nav > li > a:hover,
+  .wjs_nav .navbar-nav > li > a:focus {
+    color: #333;
+    background-color: transparent;
+    border-bottom: 3px solid #e92322;
+  }
+  .wjs_nav .navbar-nav > .active > a,
+  .wjs_nav .navbar-nav > .active > a:hover,
+  .wjs_nav .navbar-nav > .active > a:focus {
+    color: #555;
+    border-bottom: 3px solid #e92322;
+
+  }
+  .wjs_nav .navbar-nav > .disabled > a,
+  .wjs_nav .navbar-nav > .disabled > a:hover,
+  .wjs_nav .navbar-nav > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+  }
+  .wjs_nav .navbar-toggle {
+    border-color: #ddd;
+    /* 高度变了 */
+    margin-top :23px;
+  }
+  .wjs_nav .navbar-toggle:hover,
+  .wjs_nav .navbar-toggle:focus {
+    background-color: #ddd;
+  }
+  .wjs_nav .navbar-toggle .icon-bar {
+    background-color: #888;
+  }
+  .wjs_nav .navbar-collapse,
+  .wjs_nav .navbar-form {
+    border-color: #e7e7e7;
+  }
+  .wjs_nav .navbar-nav > .open > a,
+  .wjs_nav .navbar-nav > .open > a:hover,
+  .wjs_nav .navbar-nav > .open > a:focus {
+    color: #555;
+    background-color: #e7e7e7;
+  }
+  @media (max-width: 767px) {
+    .wjs_nav .navbar-nav .open .dropdown-menu > li > a {
+      color: #777;
+    }
+    .wjs_nav .navbar-nav .open .dropdown-menu > li > a:hover,
+    .wjs_nav .navbar-nav .open .dropdown-menu > li > a:focus {
+      color: #333;
+      background-color: transparent;
+    }
+    .wjs_nav .navbar-nav .open .dropdown-menu > .active > a,
+    .wjs_nav .navbar-nav .open .dropdown-menu > .active > a:hover,
+    .wjs_nav .navbar-nav .open .dropdown-menu > .active > a:focus {
+      color: #555;
+      background-color: #e7e7e7;
+    }
+    .wjs_nav .navbar-nav .open .dropdown-menu > .disabled > a,
+    .wjs_nav .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+    .wjs_nav .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+      color: #ccc;
+      background-color: transparent;
+    }
+  }
+  .wjs_nav .navbar-link {
+    color: #777;
+  }
+  .wjs_nav .navbar-link:hover {
+    color: #333;
+  }
+  .wjs_nav .btn-link {
+    color: #777;
+  }
+  .wjs_nav .btn-link:hover,
+  .wjs_nav .btn-link:focus {
+    color: #333;
+  }
+  .wjs_nav .btn-link[disabled]:hover,
+  fieldset[disabled] .wjs_nav .btn-link:hover,
+  .wjs_nav .btn-link[disabled]:focus,
+  fieldset[disabled] .wjs_nav .btn-link:focus {
+    color: #ccc;
+  }
+/* end of 导航条 */

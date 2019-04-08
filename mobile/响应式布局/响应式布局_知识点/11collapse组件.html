@@ -1,0 +1,57 @@
+<!-- h5文档声明 -->
+<!DOCTYPE html>
+<!-- 文档语言申明 -->
+<html lang="zh-CN">
+  <head>
+      <!-- 文档编码声明 -->
+    <meta charset="utf-8">
+    <!-- 要求当前网页使用浏览器最高版本的内核进行渲染 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 移动端视口适配 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=0">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>Bootstrap 101 Template</title>
+
+    <!-- Bootstrap  核心样式-->
+    <link href="../lib/bootstrap3.3.7/css/bootstrap.css" rel="stylesheet">
+
+    <!-- HTML5 shiv 和 Respond.js 是为了让 IE8 支持 HTML5 元素和媒体查询（media queries）功能 -->
+    <!-- 警告：通过 file:// 协议（就是直接将 html 页面拖拽到浏览器中）访问页面时 Respond.js 不起作用 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <!-- 需求，点切换实现展示缩小效果 -->
+
+    <!-- 
+        data-toggle="collapse"-让button变成伸缩按钮
+        data-target=".box" 伸缩得对象是.box后面跟得是选择器
+        实现原理：再最后加载bootstrapjs文件时，自动遍历element，根据其自定义属性，根据自定义属性
+        得值，初始化组件
+
+    -->
+    <button data-toggle="collapse" data-target=".box">切换</button>
+    <!-- a  元素可以用href选择目标 此时不能声明 data-target=".box" -->
+    <a href=".box" data-toggle="collapse" >切换</a>
+
+    <div class="box" class="box collapse out">
+        内容<br>
+        内容<br>
+        内容<br>
+        内容<br>
+        内容<br>
+        内容<br>
+
+
+        
+    </div>    
+
+
+
+    <script src="../lib/jquery/jquery.min.js"></script>
+    <!-- 加载 Bootstrap 的所有 JavaScript 插件。你也可以根据需要只加载单个插件。 -->
+    <script src="../lib/bootstrap3.3.7/js/bootstrap.js"></script>
+  </body>
+</html>

@@ -47,8 +47,40 @@
                 </div>
             </div>
         </header>
-        <!-- 导航栏-->
-        <nav class="wjs_nav"></nav>
+      <!-- 导航栏 -->
+      <!-- 取消 navbar-default   样式用 wjs_nav代替-->
+        <nav class="navbar wjs_nav">             
+            <div class="container">             
+                <div class="navbar-header">                   
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" >                
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                <!-- 商标区域 -->
+                <a class="navbar-brand" href="#">
+                    <!-- 注意不要漏了wjs_icon-->
+                    <span class="wjs_icon wjs_icon_logo"></span>
+                    <span class="wjs_icon wjs_icon_logo_name"></span>
+                </a>
+                </div>            
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">                
+                <ul class="nav navbar-nav">                   
+                    <li class="active"><a href="#">我要投资</a></li>
+                    <li><a href="#">我要借贷</a></li>
+                    <li><a href="#">平台介绍</a></li>
+                    <li><a href="#">新手专区</a></li>
+                    <li><a href="#">最新动态</a></li>
+                    <li><a href="#">微平台</a></li>
+                    
+                </ul>    
+                <!-- 小屏隐藏 -->
+                <ul class="nav navbar-nav navbar-right hidden-sm">
+                    <li><a href="#">个人中心</a></li>
+                </ul>                     
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
         <!-- 轮播图-->
         <section class="wjs_banner"></section>
         <!-- 信息-->
