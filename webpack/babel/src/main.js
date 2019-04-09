@@ -17,8 +17,8 @@ console.log('Person.info :', Person.info);
 //在webpack中，默认只能处理一部分ES6的新语法一部分高级语法无法实现
 //需要记住第三方loader来 处理高级语法需要第三方loader转换为低级后
 //交给WEBPACK打包
-//通过BABLE，可以把高级语法转为低级语法
-//第一步：安装bable的两套包
+//通过babel，可以把高级语法转为低级语法
+//第一步：安装babel的两套包
 //第一套包(babel转化工具)
 //1、npm i babel-core babel-loader babel-plugin-transform-runtime -D
 //第二套包(babel语法)
@@ -26,7 +26,7 @@ console.log('Person.info :', Person.info);
 
 //第二步：webpack.config.js 文件module节点添加匹配规则：
 //{test:/\.js$/,use:'babel-loader',exclude:/node_modules/}
-//注意配置BABLE的loader规则时，必须排除node_modules目录下的文件
+//注意配置babel的loader规则时，必须排除node_modules目录下的文件
 //原因如下：
 //1、如果不排除,babel会打包编译该目录下的所有文件
 //2、即使转换完该目录的JS项目也不能正常运行

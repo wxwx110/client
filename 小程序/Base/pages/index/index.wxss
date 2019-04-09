@@ -1,0 +1,29 @@
+
+.silder image{
+  width: 100%;
+  /*  图片网页像素是390px
+      使用rpx会自动根据图片适配屏幕  
+   */
+  height: 390rpx;
+  display: block;
+}
+.index-nav{
+  display: flex;
+  flex-wrap: wrap;
+}
+.index-nav .nav-item{
+  width: 33.333%;
+  height: 200rpx;
+  border:1rpx solid #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  /* 注意文字使用px二不是rpx--官方推荐 */
+  font-size: 16px;
+}
+.index-nav .nav-item image{
+  width: 80rpx;
+  height: 80rpx;
+}
