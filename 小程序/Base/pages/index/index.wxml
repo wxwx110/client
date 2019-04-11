@@ -1,44 +1,81 @@
+<!-- 轮播图 -->
 <view class='silder'>
  <!-- 小程序默认会给所有图片添加一个宽高 W:320px H240px 
  需要再wxss中自行定义-->
-  <image src="../../assets/images/banner-01.png"></image>  
+  <!-- <image src="../../assets/images/banner-01.png"></image>   -->
+  <!-- 小程序原则上不能大于2M所以尽量节省空间 -->
+  <!--aspectFill 等比率缩放图片，按照图片大小拉伸直到屏幕填满不图片不会变形   -->
+  <!-- <image src="https://m.360buyimg.com/mobilecms/s750x366_jfs/t1/20904/11/14924/93552/5cac4381E978492f1/f261b88ad041d883.jpg!cr_1125x549_0_72!q70.jpg.dpg" mode="aspectFill"></image> -->
+<!-- 
+indicator-dots：是否展示 面板指示点 1，0 /true,false;
+  autoplay：是否自动切换 1，0 /true,false; 需要使用插值表达式 否则会当作字符串处理
+  interval ：自动转换事件间隔单位毫秒 需要使用插值表达式 否则会当作字符串处理
+  duration: 滑动时长单位毫秒
+  circular: 是否无缝衔接
+  当值和value相同时可以省去不写
+  即 circular 等同于 circular="circular" 字符串会被解析成true
+ -->
+  <swiper indicator-dots="{{false}}" autoplay="{{1}}" interval="2500" duration="400" circular="{{true}}">
+	<swiper-item>
+      	<image src="https://m.360buyimg.com/mobilecms/s750x366_jfs/t1/25136/24/15224/97154/5cac8238E25146c9e/e9f923f9bbb2f874.jpg!cr_1125x549_0_72!q70.jpg.dpg"  mode='autoFill'/>
+    </swiper-item>
+	<swiper-item>
+      	<image src="https://m.360buyimg.com/mobilecms/s750x366_jfs/t1/19866/5/15001/95276/5caca156E4276cf7a/eb3c277f2be30546.jpg!cr_1125x549_0_72!q70.jpg.dpg"  mode='autoFill'/>
+    </swiper-item>
+</swiper>
+
 </view>
-<view class="index-nav">
-  <navigator class="nav-item">  
+<!-- 导航分区 -->
+<view class="index-nav bgw">
+  <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-01.png"></image>
     <text>美食</text>
   </navigator>
-  <navigator class="nav-item">  
+  <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-02.png"></image>
     <text>美食</text>
   </navigator>
-  <navigator class="nav-item">  
+  <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-03.png"></image>
     <text>美食</text>
   </navigator>
-  <navigator class="nav-item">  
+  <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-04.png"></image>
     <text>美食</text>
   </navigator>
-  <navigator class="nav-item">  
+  <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-05.png"></image>
     <text>美食</text>
   </navigator>
-  <navigator class="nav-item">  
+  <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-06.png"></image>
     <text>美食</text>
   </navigator>
-  <navigator class="nav-item">  
+  <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-07.png"></image>
     <text>美食</text>
   </navigator>
-  <navigator class="nav-item">  
+  <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-08.png"></image>
     <text>美食</text>
   </navigator>
-  <navigator class="nav-item">  
+  <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-09.png"></image>
     <text>美食</text>
   </navigator>
+</view>
 
+<!-- 首页入口 --> 
+<!-- 引用全局 -->
+<!-- 使用样式实现栅格 -->
+<!-- <view class="index-enter bgw  mt-20"> -->
+<!-- 使用自定义更好视觉效果的闪个蓝 -->
+<view class="divider"></view>
+<view class="index-enter bgw "> 
+  <navigator class="enter-item">
+    <image src="/assets/images/link-01.png" mode="aspectFill"></image>
+  </navigator>
+  <navigator class="enter-item">
+    <image src="/assets/images/link-02.png" mode="aspectFill"></image>
+  </navigator>
 </view>

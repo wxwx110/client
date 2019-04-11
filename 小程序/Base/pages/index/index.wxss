@@ -1,12 +1,17 @@
 
-.silder image{
+/* 轮播图 */
+.silder image
+/* swiper默认有一个150rpx的高度 */
+,.silder swiper{
   width: 100%;
   /*  图片网页像素是390px
       使用rpx会自动根据图片适配屏幕  
    */
-  height: 390rpx;
+  height: 350rpx;
   display: block;
 }
+
+/* 九宫格 */
 .index-nav{
   display: flex;
   flex-wrap: wrap;
@@ -14,16 +19,57 @@
 .index-nav .nav-item{
   width: 33.333%;
   height: 200rpx;
-  border:1rpx solid #ccc;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  box-sizing: border-box;
   /* 注意文字使用px二不是rpx--官方推荐 */
   font-size: 16px;
+
+    /* 在微信应用中所有的1px会变成2px 应该使用rpx单位 */
+  /* border:1rpx solid #ccc; */
+  /* 使用全border会导致边框线太粗 */
+   /* border-right:1rpx solid #ccc; */
+   /* 使用伪元素可以在不占用页面像素的情况实现边框 */
+   border-bottom:1rpx solid #ccc;
+
+   /* position: relative; */
 }
+/* .index-nav .nav-item ::after {
+  content: "";
+  width:1rpx;
+  height:100%;
+  background-color:#ccc;
+  position: absolute;
+  right: 0;
+  top: 0;
+} */
+
+/* 取消 369的 right边框
+.index-nav .nav-item:nth-child(3n){
+     border-right:0 none;   
+} */
+/* 去除伪类元素宽度 */
+.index-nav .nav-item:nth-child(3n)::after{
+     width: 0;
+} 
 .index-nav .nav-item image{
   width: 80rpx;
   height: 80rpx;
 }
+
+/* 首页入口 */
+.index-enter{
+  display: flex;
+  justify-content:space-around;
+  padding:20rpx 30rpx;
+}
+.index-enter .enter-item{
+  border-radius: 50%;
+}
+.index-enter .enter-item image{
+  display: block;
+  width: 320rpx;
+  height: 178rpx;
+}
+
