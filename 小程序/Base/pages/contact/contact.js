@@ -1,4 +1,4 @@
-// pages/contact/contack.js
+// pages/contact/contact.js
 Page({
 
     /**

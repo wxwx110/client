@@ -29,3 +29,38 @@ page{
   right: 0;
   top: 0;
 }
+
+/* 更多箭头封装 */
+
+.arrow{
+  display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.arrow::after{
+    content: "";
+    width: 15rpx;
+    height: 15rpx;
+    border-top:3rpx solid #ccc;
+    border-right:3rpx solid #ccc;
+    /* 旋转 */
+    transform: rotate(45deg);
+    display:block;
+}
+
+/* 居中对齐 */
+.item-center{
+     display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 列表样式 */
+.cell{
+    font-size: 16px;    
+    background-color: #fff;
+}
+.cell-item{
+    border-bottom: 1rpx solid #ddd;
+    padding: 20rpx 30rpx;
+}

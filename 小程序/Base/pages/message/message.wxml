@@ -1,2 +1,16 @@
-<!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
+<view class="card">
+    <text class="card-title">标题1111</text>
+    <text class="card-date">2019-01-01</text>
+    <image class="card-img" mode="aspectFill" src='https://m.360buyimg.com/mobilecms/s750x366_jfs/t1/20904/11/14924/93552/5cac4381E978492f1/f261b88ad041d883.jpg!cr_1125x549_0_72!q70.jpg.dpg'></image>
+    <text class="card-desc">越努力，越幸运</text>
+    <text class="card-read arrow">查看详情</text>
+</view>
+
+<view class="card">
+    <text class="card-title">标题1111</text>
+    <text class="card-date">2019-01-01</text>
+    <image class="card-img" mode="aspectFill" src='https://m.360buyimg.com/mobilecms/s750x366_jfs/t1/20904/11/14924/93552/5cac4381E978492f1/f261b88ad041d883.jpg!cr_1125x549_0_72!q70.jpg.dpg'></image>
+    <text class="card-desc">越努力，越幸运</text>
+    <text class="card-read arrow">查看详情</text>
+</view>
+

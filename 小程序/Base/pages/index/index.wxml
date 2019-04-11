@@ -27,9 +27,9 @@ indicator-dots：是否展示 面板指示点 1，0 /true,false;
 </view>
 <!-- 导航分区 -->
 <view class="index-nav bgw">
-  <navigator class="nav-item broder-right-1px">  
-    <image src="/assets/icons/grid-01.png"></image>
-    <text>美食</text>
+  <navigator class="nav-item broder-right-1px" url="/pages/shopList/shopList">  
+    <image src="/assets/icons/grid-01.png" ></image>
+    <text>店铺</text>
   </navigator>
   <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-02.png"></image>

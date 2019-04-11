@@ -1,0 +1,7 @@
+<view class="divider"></view>
+<!-- 列表 -->
+<view class="cell">
+    <navigator class="cell-item arrow">
+        <text>设置</text>
+    </navigator>
+</view>

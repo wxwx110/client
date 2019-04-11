@@ -1,0 +1,53 @@
+page{
+    background-color: #fff;
+}
+
+.shop{
+    padding:20rpx;
+    border-bottom: 1rpx solid #ccc;
+    display: flex;
+    position: relative;
+}
+.shop-img{    
+    width: 160rpx;
+    height: 160rpx;
+    margin-right: 20rpx;    
+}
+.shop-info{    
+    width: 520rpx;
+   display: flex;
+   flex-direction: column;
+   font-size: 12px;
+   color:#666;
+   /* 根据字体，一定比率缩放行高  */
+   line-height: 1.5;
+}
+.shop-info .shop-title{
+    font-size: 14px;
+    color:#333;
+}
+
+/* 
+利用两套星星折叠
+控制前景色星星的宽度，并利用overflow遮挡多余部分星星
+显示背景色星星达到按照一定比率显示星星的效果
+ */
+.shop-star{
+    position: absolute;
+    right:20rpx;
+    top:20rpx;
+    border: 1rpx solid red;
+}
+.star-after{
+     color:#e2e2e2;
+}
+/* 本元素是相对 .shop-star 进行定位的 */
+.star-before{
+    color:#f19e38;
+    position: absolute;
+    left:0rpx;
+    top:0;
+
+    width:50%;
+    overflow: hidden;
+}
