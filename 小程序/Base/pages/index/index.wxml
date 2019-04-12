@@ -15,29 +15,35 @@ indicator-dots：是否展示 面板指示点 1，0 /true,false;
   当值和value相同时可以省去不写
   即 circular 等同于 circular="circular" 字符串会被解析成true
  -->
+ 
   <swiper indicator-dots="{{false}}" autoplay="{{1}}" interval="2500" duration="400" circular="{{true}}">
-	<swiper-item>
-      	<image src="https://m.360buyimg.com/mobilecms/s750x366_jfs/t1/25136/24/15224/97154/5cac8238E25146c9e/e9f923f9bbb2f874.jpg!cr_1125x549_0_72!q70.jpg.dpg"  mode='autoFill'/>
+  
+	<swiper-item wx:for="{{ silderList }}" wx:key="id">
+      	<image src="{{item.image}}"  mode='autoFill'/>
     </swiper-item>
-	<swiper-item>
+	<!-- <swiper-item>
       	<image src="https://m.360buyimg.com/mobilecms/s750x366_jfs/t1/19866/5/15001/95276/5caca156E4276cf7a/eb3c277f2be30546.jpg!cr_1125x549_0_72!q70.jpg.dpg"  mode='autoFill'/>
-    </swiper-item>
+    </swiper-item> -->
 </swiper>
 
 </view>
+
 <!-- 导航分区 -->
 <view class="index-nav bgw">
+
   <navigator class="nav-item broder-right-1px" url="/pages/shopList/shopList">  
     <image src="/assets/icons/grid-01.png" ></image>
     <text>店铺</text>
   </navigator>
   <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-02.png"></image>
-    <text>美食</text>
+    <text>{{listMessage[0]}}</text>
+    <!-- 注意插值表达式和引号中间不能有空格，否则会被误判成 true -->
+    <checkbox checked='{{ifcheck}}'></checkbox>
   </navigator>
   <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-03.png"></image>
-    <text>美食</text>
+    <text>{{listMessage[1]}}</text>
   </navigator>
   <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-04.png"></image>
