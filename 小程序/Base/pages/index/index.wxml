@@ -19,7 +19,8 @@ indicator-dots：是否展示 面板指示点 1，0 /true,false;
   <swiper indicator-dots="{{false}}" autoplay="{{1}}" interval="2500" duration="400" circular="{{true}}">
   
 	<swiper-item wx:for="{{ silderList }}" wx:key="id">
-      	<image src="{{item.image}}"  mode='autoFill'/>
+    <!-- 有时图片无法正常加载尝试添加 loazy-load -->
+      	<image src="{{item.image}}"  mode='autoFill' lazy-load/>
     </swiper-item>
 	<!-- <swiper-item>
       	<image src="https://m.360buyimg.com/mobilecms/s750x366_jfs/t1/19866/5/15001/95276/5caca156E4276cf7a/eb3c277f2be30546.jpg!cr_1125x549_0_72!q70.jpg.dpg"  mode='autoFill'/>
