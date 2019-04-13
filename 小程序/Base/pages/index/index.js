@@ -9,7 +9,8 @@ Page({
   data: {
       listMessage: ['美食','精品'],
       ifcheck:true,
-      silderList:[]
+      silderList:[],
+      catalog:[]
   },
 
   /**
@@ -52,7 +53,18 @@ Page({
             })
           },   
       });
+      wx.request({
+          url: 'https://locally.uieee.com/categories',
+          success:(res)=>{
+            
+              this.setData({
+                  catalog:res.data
+              })
+          }
+      })
 
+
+     
     
 
   },

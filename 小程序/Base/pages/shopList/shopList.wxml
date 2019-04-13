@@ -5,17 +5,33 @@
     2、设置 所有 并排元素的宽度
     
  -->
-<image class="shop-img" src="http://gw1.alicdn.com/bao/uploaded/i3/880734502/TB2jthZqFkoBKNjSZFEXXbrEVXa_!!880734502.png_80x80.jpg" mode="aspectFill" />
+<image  class="shop-img" src="http://gw1.alicdn.com/bao/uploaded/i3/880734502/TB2jthZqFkoBKNjSZFEXXbrEVXa_!!880734502.png_80x80.jpg" mode="aspectFill" />
     
       <view class="shop-info">
-        <text class="shop-title">店铺名称:</text>
+        <text class="shop-title ell">店铺名称:名字很长很长很长很长很长</text>
         <text class="shop-tel">电话:</text>
         <text class="shop-address">地址:</text>
         <text class="shop-time">营业时间:</text>
       </view>
       <view class="shop-star" >
         <view class="star-after">★★★★★</view>
-        <view class="star-before">★★★★★</view>
-        
+        <view class="star-before">★★★★★</view>        
       </view>        
+</view>
+<view class="shop"  wx:for="{{shopList}}" wx:key="id">
+<image class="shop-img" src="{{item.images[0]}}" mode="aspectFill" />    
+      <view class="shop-info">
+        <text class="shop-title ell">{{item.name}}</text>
+        <text class="shop-tel">电话:{{item.phone}}</text>
+        <text class="shop-address">地址:{{item.address}}</text>
+        <text class="shop-time">营业时间:{{item.businessHours}}</text>
+      </view>
+      <view class="shop-star" >
+            <view class="star-after">★★★★★</view>
+            <view class="star-before" style="width:{{item.score}}%">★★★★★</view>
+        </view>
+</view>
+
+<view class="loadmore loading">
+正在加载
 </view>

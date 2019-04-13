@@ -25,6 +25,8 @@ page{
 .shop-info .shop-title{
     font-size: 14px;
     color:#333;
+    width:70%;
+
 }
 
 /* 
@@ -36,18 +38,5 @@ page{
     position: absolute;
     right:20rpx;
     top:20rpx;
-    border: 1rpx solid red;
-}
-.star-after{
-     color:#e2e2e2;
-}
-/* 本元素是相对 .shop-star 进行定位的 */
-.star-before{
-    color:#f19e38;
-    position: absolute;
-    left:0rpx;
-    top:0;
-
-    width:50%;
-    overflow: hidden;
+    /* border: 1rpx solid red; */
 }

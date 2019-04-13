@@ -32,14 +32,14 @@ indicator-dots：是否展示 面板指示点 1，0 /true,false;
 <!-- 导航分区 -->
 <view class="index-nav bgw">
 
-  <navigator class="nav-item broder-right-1px" url="/pages/shopList/shopList">  
-    <image src="/assets/icons/grid-01.png" ></image>
-    <text>店铺</text>
+  <navigator wx:for="{{catalog}}" wx:key="id" class="nav-item broder-right-1px" url="/pages/shopList/shopList?cate={{item.id}}&title={{item.name}}">  
+    <image src="{{item.icon}}" ></image>
+    <text>{{item.name}}</text>
   </navigator>
-  <navigator class="nav-item broder-right-1px">  
+  <!-- <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-02.png"></image>
     <text>{{listMessage[0]}}</text>
-    <!-- 注意插值表达式和引号中间不能有空格，否则会被误判成 true -->
+    注意插值表达式和引号中间不能有空格，否则会被误判成 true
     <checkbox checked='{{ifcheck}}'></checkbox>
   </navigator>
   <navigator class="nav-item broder-right-1px">  
@@ -69,7 +69,7 @@ indicator-dots：是否展示 面板指示点 1，0 /true,false;
   <navigator class="nav-item broder-right-1px">  
     <image src="/assets/icons/grid-09.png"></image>
     <text>美食</text>
-  </navigator>
+  </navigator> -->
 </view>
 
 <!-- 首页入口 --> 

@@ -1,107 +1,23 @@
-/* 全局样式，通过全局样式定义整个app的样式效果 */
-page{
-  background-color: #ccc;
-}
-.bgw{
-  background-color: #fff;
-}
-.mt-20{
-  margin-top: 20rpx;
-}
-/* 自定义分割栅格栏 */
-.divider{
-  height: 20rpx;
-  background-color: #f1f1f1;
-  box-shadow: 0 10rpx 10rpx rgba(0, 0, 0, .1) inset;
-}
-
-/* 细线边框封装 */
-.broder-right-1px{
-  position: relative;
-}
-
-.broder-right-1px::after {
-  content: "";
-  width:1rpx;
-  height:100%;
-  background-color:#ccc;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-/* 更多箭头封装 */
-
-.arrow{
-  display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.arrow::after{
-    content: "";
-    width: 15rpx;
-    height: 15rpx;
-    border-top:3rpx solid #ccc;
-    border-right:3rpx solid #ccc;
-    /* 旋转 */
-    transform: rotate(45deg);
-    display:block;
-}
-
-/* 居中对齐 */
-.item-center{
-     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* 列表样式 */
-.cell{
-    font-size: 16px;    
-    background-color: #fff;
-}
-.cell-item{
-    border-bottom: 1rpx solid #ddd;
-    padding: 20rpx 30rpx;
-}
-
-/* 评价星样式封装 */
-.star-after{
-     color:#e2e2e2;
-}
-/* 本元素是相对 .shop-star 进行定位的 */
-.star-before{
-    color:#f19e38;
-    position: absolute;
-    left:0rpx;
-    top:0;
-
-    width:50%;
-    overflow: hidden;
-}
-/* 超出宽度变省略号 */
-.ell{
-        overflow: hidden;
-    /* 不换行 */
-    white-space: nowrap;
-    /* 超出省略号 */
-    text-overflow: ellipsis;
-}
-
-/* 加载更多 */
-    .loadmore {
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style type="text/css">
+        /* 正在加载公共样式 */
+        .loadmore {
           color: #888;
-          font-size: 16px;
-          line-height: 100rpx;
+          font-size: 30px;
+          line-height: 100px;
           text-align: center;
         }
 
         .loadmore.loading::before {
           content: '';
-          width: 40rpx;
-          height: 40rpx;
-          margin-top: -10rpx;
-          margin-right: 10rpx;
+          width: 40px;
+          height: 40px;
+          margin-top: -10px;
+          margin-right: 10px;
           display: inline-block;
           vertical-align: middle;
           animation: loading 1s steps(12) infinite;
@@ -117,3 +33,9 @@ page{
             transform: rotate(-360deg);
           }
         }
+    </style>
+</head>
+<body>
+    <div class="loadmore loading">正在加载...</div>
+</body>
+</html>

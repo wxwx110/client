@@ -60,9 +60,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 3,
 					"name": "shoplist",
 					"pathName": "pages/shopList/shopList",
+					"query": "cate=2",
 					"scene": null
 				}
 			]
