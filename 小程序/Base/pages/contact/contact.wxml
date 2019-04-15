@@ -40,4 +40,41 @@
         <radio color="black" value="2">地</radio>
      </radio-group>       
     </view>
+
+    <view class="cell-item arrow">
+      <switch></switch> 
+        <switch color="#f60" checked></switch>  
+    </view>
 </view>
+<view class="divider"></view>
+<view class="cell">
+  <view class="cell-item arrow">
+        <text>微信小程序事件</text>
+    </view>
+    <view class="father" bindtap="fatherTapHandle">
+        爸爸
+        <!--  <view class="son" catchtap="sonTapHandle">可以阻止事件冒泡 -->
+        <!-- 通过自定义属性data-i="1"传递参数后台在event>target>dataset对象中通过index获取属性值 -->
+        <view class="son" bindtap="sonTapHandle" data-index="1">
+        儿子
+        </view>
+    </view>
+</view>
+
+
+<!-- wxml -->
+<wxs module="foo">
+var sum=function(a,b){
+    return a+b;
+}
+var back={
+    a:1,
+    b:2,
+    sumfunc:sum
+}
+//导出对象可以直接在界面上使用 -->
+module.exports.expObj=back;
+</wxs>
+<view>{{foo.expObj.a}}</view>
+<view>{{foo.expObj.b}}</view>
+<view>{{foo.expObj.sumfunc(2,2)}}</view>

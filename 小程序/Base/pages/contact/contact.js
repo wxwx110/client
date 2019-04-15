@@ -10,6 +10,17 @@ Page({
     radioChangeHandle:function(event){
         console.log(event);
     },
+    fatherTapHandle:function(event){
+        console.log('fatherhandler');
+        console.log(event);
+        console.log('fatherhandler_end');
+    },
+    sonTapHandle: function (event) {
+        console.log('sonhandler');
+        console.log(event);
+        console.log('sonhandler_end');
+    },
+
 
     /**
      * 生命周期函数--监听页面加载
