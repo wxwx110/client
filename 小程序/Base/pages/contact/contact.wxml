@@ -2,6 +2,42 @@
 <!-- 列表 -->
 <view class="cell">
     <navigator class="cell-item arrow">
-        <text>设置</text>
+        <text>表单文本框</text>
     </navigator>
+    <!-- 根据输入类型不同会调用不同的输入键盘 -->
+    <view class="cell-item ">
+        <input type='text' placeholder='普通文本'></input>
+    </view>
+    <view class="cell-item ">
+       <input type='text'  password placeholder='密码'></input>
+    </view>
+      <view class="cell-item ">
+       <input type="number" placeholder='数字'></input>
+    </view>
+
+       <view class="cell-item ">
+       <input type="idcard" placeholder='身份证'></input>
+    </view>
+
+</view>
+<view class="cell">
+    <navigator class="cell-item arrow">
+        <text>其他</text>
+    </navigator>
+    <view class="cell-item arrow">
+    <checkbox-group>
+        <checkbox color="red">1 </checkbox>
+        <checkbox color="black"> 2</checkbox>
+    </checkbox-group>
+        
+    </view>
+     <view class="cell-item arrow">
+     <!-- 通过编组确定唯一性 通过bindchange事件绑定函数获取值
+        可以在绑定事件的 currentTarget >dataset 中获取自定义的 data-index="myIndex" 值
+     -->
+     <radio-group bindchange="radioChangeHandle" data-index="myIndex">
+        <radio color="red" value="1">天</radio>
+        <radio color="black" value="2">地</radio>
+     </radio-group>       
+    </view>
 </view>

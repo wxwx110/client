@@ -10,11 +10,12 @@
   ],
   
   "window": {
-    "backgroundTextStyle": "light",
+   
     "navigationBarBackgroundColor": "#f60",
     "navigationBarTitleText": "本地宝",
-    "navigationBarTextStyle": "white",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "white"
+   
+    
   },
   "tabBar": {
       "color": "#000000",
@@ -41,7 +42,7 @@
         },
         {
             "pagePath": "pages/contact/contact",
-            "text": "联系我们",
+            "text": "其他",
             "iconPath": "assets/tabs/contact.png",
             "selectedIconPath": "assets/tabs/contact-active.png"
         }

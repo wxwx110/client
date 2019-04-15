@@ -8,7 +8,8 @@ Page({
         shopList:[],
         pageIndex:1,
         pageSize:10,
-        cateId:0
+        cateId:0,
+        hasMore:true
     },
     
 
@@ -25,7 +26,12 @@ Page({
             title: options.title || '店铺'
         });
     },
-    loadMore(pageIndex,pageSize){
+    loadMore(pageIndex=1,pageSize=10){
+        wx.showNavigationBarLoading();
+        wx.showLoading({
+            title: '努力加载中',
+        },2000)
+        
         wx.request({
             url: 'https://locally.uieee.com/categories/' + this.data.cateId + '/shops',
             data: {
@@ -33,10 +39,21 @@ Page({
                 _page: pageIndex||this.data.pageIndex
             },
             success: (res) => {
+                let count =res.header['X-Total-Count']*1;
+
+            
+              
                 this.setData({
-                    shopList: this.data.shopList.concat(res.data)
-                })
+                    shopList: this.data.shopList.concat(res.data),
+                      hasMore: pageIndex * pageSize <= count
+                });
+             
+            },
+            complete:()=>{
+                wx.hideLoading();
+                wx.hideNavigationBarLoading();
             }
+
         });
     },
     /**
@@ -47,6 +64,15 @@ Page({
        */
     onPullDownRefresh: function () {
       console.log('111');
+        this.setData({
+          shopList: [],
+          pageIndex: 1,         
+          hasMore: true
+      })
+
+        this.loadMore();
+        // 停止下拉加载否则，在手机端下拉刷新条会一直存在
+        wx.stopPullDownRefresh();
     },
 
     /**
@@ -55,8 +81,12 @@ Page({
 
   */
     onReachBottom: function () {
-
-        this.loadMore(++this.data.pageIndex,this.data.pageSize);
+        console.log(this.data.hasMore);
+        if (this.data.hasMore){
+            this.loadMore(++this.data.pageIndex, this.data.pageSize);
+        }
+        
+       
       
     },
 

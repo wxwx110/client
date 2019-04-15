@@ -32,6 +32,14 @@
         </view>
 </view>
 
-<view class="loadmore loading">
+<view wx:if="{{hasMore}}" class="loadmore loading">
 正在加载
 </view>
+<view wx:else class="loadmore">
+no more
+</view>
+
+<!-- <view wx:if="{{!hasMore}}" class="loadmore">
+木有更多了
+</view> -->
+
