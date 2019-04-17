@@ -83,58 +83,43 @@
         </nav>
         <!-- 轮播图-->
         <section class="wjs_banner">
-            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators 指示器--底部点容器 点盒子 -->
-                <ol class="carousel-indicators">
-                    <!-- 
-                        data-target="#carousel-example-generic" 当前元素的控制目标 
-                        data-slide-to="0" -第几张图
-                        class="active" 当前选中的点
-                    -->
-                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                  <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                </ol>
-              
-                <!-- 图片容器-->
-                <!-- role="listbox" 提供给网页阅读器使用 -->
-                <!-- <div class="carousel-inner" role="listbox"> -->
-                 <div class="carousel-inner"> 
-                     <!-- 需要轮播的容器 -->
-                  <div class="item active">
-                      <!-- 轮播图片 -->
-                    <img src="images/slide_01_2000x410.jpg" alt="...">
-                 
-                  </div>
-                  <div class="item">
-                    <img src="images/slide_02_2000x410.jpg" alt="...">
-                 
-                  </div>
-                  <div class="item">
-                    <img src="images/slide_03_2000x410.jpg" alt="...">
-                 
-                  </div>
-                  <div class="item">
-                    <img src="images/slide_04_2000x410.jpg" alt="...">
-                 
-                  </div>
-                  ...
-                </div>
-              
-                <!-- 左右切换按钮-->
-                <!-- 
-                    data-slide="prev" -上一页
-                    data-slide="next"  -下一页
-                    href="#carousel-example-generic"  指定控制目标容器        
-                 -->               
-                <a class="left carousel-control" href="#carousel-example-generic"  data-slide="prev">              
-                  <span class="glyphicon glyphicon-chevron-left" ></span>                 
-                </a>
-                <a class="right carousel-control" href="#carousel-example-generic"  data-slide="next">
-                  <span class="glyphicon glyphicon-chevron-right"></span>          
-                </a>
-            </div>
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                        <!-- Indicators 指示器--底部点容器 点盒子 -->
+                        <ol class="carousel-indicators">        
+                          <!-- <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                          <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                          <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                          <li data-target="#carousel-example-generic" data-slide-to="3"></li> -->
+                        </ol>      
+                        <!-- 图片 -->
+                         <div class="carousel-inner"> 
+                           
+                          <!-- <div class="item active">            
+                              <a href="" class="pc_imgBox hidden-xs " style="background-image: url('images/slide_01_2000x410.jpg')"></a>
+                              <a href="" class="m_imgBox hidden-lg hidden-md hidden-sm "><img src="images/slide_01_640x340.jpg" alt=""></a>
+                          </div>
+                          <div class="item">               
+                                <a href="" class="pc_imgBox hidden-xs" style="background-image: url('images/slide_02_2000x410.jpg')"></a>   
+                                <a href="" class="m_imgBox hidden-lg hidden-md hidden-sm"><img src="images/slide_02_640x340.jpg" alt=""></a>      
+                          </div>
+                          <div class="item">
+                                <a href="" class="pc_imgBox hidden-xs" style="background-image: url('images/slide_03_2000x410.jpg')"></a>  
+                                <a href="" class="m_imgBox hidden-lg hidden-md hidden-sm"><img src="images/slide_03_640x340.jpg" alt=""></a>       
+                          </div>
+                          <div class="item">
+                                <a href="" class="pc_imgBox hidden-xs" style="background-image: url('images/slide_04_2000x410.jpg')"></a>   
+                                <a href="" class="m_imgBox hidden-lg hidden-md hidden-sm"><img src="images/slide_04_640x340.jpg" alt=""></a>      
+                          </div> -->
+                          
+                        </div>      
+                    <!-- 控制按钮 -->
+                        <a class="left carousel-control" href="#carousel-example-generic"  data-slide="prev">              
+                          <span class="glyphicon glyphicon-chevron-left" ></span>                 
+                         </a>
+                        <a class="right carousel-control" href="#carousel-example-generic"  data-slide="next">
+                          <span class="glyphicon glyphicon-chevron-right"></span>          
+                        </a>
+                    </div>
         </section>
         <!-- 信息-->
         <section class="wjs_banner"></section>
@@ -147,9 +132,36 @@
         <!--合作伙伴  -->
         <section class="wjs_partner"></section>
 
+
+    <!--模板 -->
+    <!-- 轮播图小点 -->
+    <script type="text/template" id="pointTemplate">
+     
+        <% for(var i=0 ; i<list.length ; i++) { %>
+                <li data-target="#carousel-example-generic" data-slide-to="<%=i%>" class="<%=i==0?'active':'' %>"></li>
+        <%}%>
+
+                        
+    </script>
+    <!-- 轮播图图画 -->
+    <script type="text/template" id="imageTemplate">
+        <% for(var i=0 ; i<list.length ; i++) { %>
+            <div class="item <%=i==0?'active':'' %>">      
+                <% if (isMobile) {%>      
+                    <a href="#" class="m_imgBox"><img src="<%=list[i].mUrl %>" alt=""></a>
+                <%} else {%>
+                    <a href="#" class="pc_imgBox" style="background-image: url('<%=list[i].pcUrl%>')"></a>
+                <% }%>
+            </div>
+        <%}%>
+       
+    </script>
+    <!--模板 end-->
     
     <script src="../lib/jquery/jquery.min.js"></script>   
     <script src="../lib/bootstrap3.3.7/js/bootstrap.js"></script>
+    <!-- 模板引擎 -->
+    <script src="../lib/artTemplate/template-native.js"></script>
     <script src="./js/index.js"></script>
   </body>
 </html>

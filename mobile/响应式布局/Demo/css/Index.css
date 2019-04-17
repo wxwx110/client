@@ -268,3 +268,23 @@ a:hover{
     color: #ccc;
   }
 /* end of 导航条 */
+
+/* 轮播图 */
+.wjs_banner .pc_imgBox{
+  display: block;
+  height: 500px;
+  width: 100%;
+  /* 铺满容器，且自适应不变形 */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;          
+  
+}
+.wjs_banner .m_imgBox{
+  display: block;           
+  width: 100%;         
+}
+.wjs_banner .m_imgBox img{
+  display: block;
+  width: 100%;
+}
