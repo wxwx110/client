@@ -12,7 +12,9 @@ a:hover{
     text-decoration: none;
     color:#333;
 }
-/* 自定义字体图标 */
+/* reset css  end*/
+
+/* 自定义图标 */
 /* 1、通过 @font-face  定义字体*/
 @font-face {
   /*2.申明自己的字体名称*/
@@ -49,8 +51,10 @@ a:hover{
 .wjs_icon_video::before{
   content: "\e905";
 }
+/* 自定义字体图标 end*/
 
 /* modal css */
+/* topBar */
 .wjs_topBar{
     border-bottom: 1px solid  #ccc;
     font-size: 12px;
@@ -121,6 +125,7 @@ a:hover{
    border-top:none;
    z-index: 1000;
 }
+/* topBar  End*/
 /* 导航条
     为了保证自己修订得样式可以完全得覆盖bootstrap样式
     可以从源码种拷贝对应组件的样式组，再这个基础上进行修改
