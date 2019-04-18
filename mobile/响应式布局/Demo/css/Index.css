@@ -48,6 +48,8 @@ a:hover{
 .wjs_icon_clock::before{
   content: "\e906";
 }
+
+
 .wjs_icon_video::before{
   content: "\e905";
 }
@@ -288,3 +290,38 @@ a:hover{
   display: block;
   width: 100%;
 }
+
+
+/*信息区块*/
+.wjs_info{
+    border-bottom: 1px solid #cccccc;
+    padding:15px 0;
+}
+/*bootstrap并不一定能满足全部需求 设定宽度让信息区块内容居中*/
+.wjs_info> .container{
+    width: 900px;
+}
+/*在小屏容器时容器宽度750才能保证居中*/
+/*
+写媒体查询时默认可以省略screen
+@media screen and  (min-width:768px ) and (max-width: 992px){*/
+
+/*}*/
+@media  (min-width:768px ) and (max-width: 992px) {
+    .wjs_info> .container{
+        width: 750px;
+    }
+}
+
+
+.wjs_info> .container>div>a{
+    display: block;
+    padding: 15px 0;
+}
+.wjs_info> .container>div>a:hover{
+    color: #e92322;
+}
+.wjs_info> .container>div>a .wjs_icon_dollar{
+   font-size: 30px;
+}
+
