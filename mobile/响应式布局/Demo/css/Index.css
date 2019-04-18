@@ -324,4 +324,35 @@ a:hover{
 .wjs_info> .container>div>a .wjs_icon_dollar{
    font-size: 30px;
 }
+/*预约模块*/
+.wjs_book{
+  padding:40px 0;
+    border-bottom: 1px solid #ccc;
+
+}
+.wjs_book> .container{
+    width: 900px;
+}
+@media  (min-width:768px ) and (max-width: 992px) {
+    .wjs_book> .container{
+        width: 750px;
+    }
+}
+/*设备最小时百分百*/
+@media  (max-width: 768px) {
+    .wjs_book> .container{
+        width: 100%
+    }
+}
+
+.wjs_book .book{
+    color: #e92322;
+    border-bottom: 1px dashed #e92322;
+}
+.wjs_book .video:hover{
+    color:#e92322;
+}
+.wjs_book .wjs_icon{
+    font-size: 20px;
+}
 
