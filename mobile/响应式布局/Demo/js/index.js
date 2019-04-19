@@ -13,6 +13,9 @@ $(function(){
     // 移动端 UI框架 bootstrap,jqueryMobile,mui,framework7
     // 模板引擎 artTemplate,handlebars,mustache,baiduTemplate,velocity,underscore
     banner();
+
+    //移动端页签
+    intiMobileTab();
 });
 
 // 获取轮播图数据
@@ -73,6 +76,7 @@ banner = function () {
         distanceX=moveX-startX;
         isMove=true;
     }).on('touchend', function (e) {
+        
         if(isMove && Math.abs(distanceX)>50){
 
             if(distanceX<0){
@@ -87,4 +91,45 @@ banner = function () {
         distanceX=0;
         isMove=0;
     })
+};
+
+//初始化移动端
+
+const intiMobileTab=function () {
+/*
+* 1、解决换行问题*
+* 2、修改结构，小框套大框
+* 3、自己实现滑动效果或者iscroll
+* */
+//设置内部大框宽度，让标签在小屏时不换行
+    let $navTabs= $('.wjs_product .nav-tabs ');
+    let width=0;
+    $navTabs.find('li').each((i,item)=>{
+        // x
+        // console.log($(item).width());
+        /*
+            jquery
+        * width():获取内容宽度
+        *  innerWidth() 内容+内边距
+        * outerWidth() 内容+内边距+边框
+        * outerWidth(true) 内容+内边距+边框+外编剧
+        *outerWidth(true) 在记算宽度时会省去小数点，导致宽度
+        * 使用这个方法计算宽度时会导致小数点后面的数字被忽略因此需要+1才能大于实际宽度
+        * */
+        width+=$(item).outerWidth(true)+1;
+
+    });
+   //修订宽度
+    $navTabs.width(width);
+
+//    实现滑动
+    new IScroll($('.nav-tabs-container')[0],{
+        scrollX:true,
+        scrollY:false,
+        //开启滚动条可以点击
+        click:true
+    })
+
+
+
 };

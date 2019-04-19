@@ -355,4 +355,91 @@ a:hover{
 .wjs_book .wjs_icon{
     font-size: 20px;
 }
+/*预约模块 end*/
 
+/*产品模块*/
+.wjs_product{
+    padding: 20px 0;
+    background:#f5f5f5;
+}
+
+.wjs_product ,nav-tabs-container{
+    width: 100%;
+    overflow: hidden;
+}
+
+/*重新定义nav tab 样式 增加.wjs_product 限定样式适用范围*/
+.wjs_product .nav-tabs{
+    border-bottom: 1px solid #ddd;
+
+}
+.wjs_product .nav-tabs> li {
+    float: left;
+    /*margin-bottom: -1px;*/
+    margin-left:15px;
+}
+.wjs_product .nav-tabs> li > a {
+    margin-right: 2px;
+    line-height: 1.42857143;
+    border: none;
+    border-radius: 4px 4px 0 0;
+}
+.wjs_product .nav-tabs> li > a:hover {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid red;
+}
+.wjs_product .nav-tabs> li.active > a,
+.wjs_product .nav-tabs> li.active > a:hover,
+.wjs_product .nav-tabs> li.active > a:focus {
+    color: #555;
+    cursor: default;
+    background-color: #f5f5f5;
+    border: none;
+    border-bottom: 3px solid red;
+}
+.nav-tabs.nav-justified {
+    width: 100%;
+    border-bottom: 0;
+}
+.nav-tabs.nav-justified > li {
+    float: none;
+}
+.nav-tabs.nav-justified > li > a {
+    margin-bottom: 5px;
+    text-align: center;
+}
+.nav-tabs.nav-justified > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+}
+@media (min-width: 768px) {
+    .nav-tabs.nav-justified > li {
+        display: table-cell;
+        width: 1%;
+    }
+    .nav-tabs.nav-justified > li > a {
+        margin-bottom: 0;
+    }
+}R
+.nav-tabs.nav-justified > li > a {
+    margin-right: 0;
+    border-radius: 4px;
+}
+.nav-tabs.nav-justified > .active > a,
+.nav-tabs.nav-justified > .active > a:hover,
+.nav-tabs.nav-justified > .active > a:focus {
+    border: 1px solid #ddd;
+}
+@media (min-width: 768px) {
+    .nav-tabs.nav-justified > li > a {
+        border-bottom: 1px solid #ddd;
+        border-radius: 4px 4px 0 0;
+    }
+    .nav-tabs.nav-justified > .active > a,
+    .nav-tabs.nav-justified > .active > a:hover,
+    .nav-tabs.nav-justified > .active > a:focus {
+        border-bottom-color: #fff;
+    }
+}
+
+/*产品模块 end*/
