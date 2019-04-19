@@ -16,6 +16,9 @@ $(function(){
 
     //移动端页签
     intiMobileTab();
+
+    //初始化按钮提示
+    $('[data-toggle="tooltip"]').tooltip();
 });
 
 // 获取轮播图数据

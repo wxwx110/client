@@ -442,4 +442,152 @@ a:hover{
     }
 }
 
+.product-box{
+    display: block;
+    width:100% ;
+    height: 150px;
+    background: #fff;
+    box-shadow: 3px 3px 5px #d8d8d8;
+    margin-top: 25px;
+    color: #666;
+}
+.product-box:hover{
+    color: #666;
+}
+.product-box.active{
+    background: #e92322;
+    color:#fff;
+    position: relative;
+}
+/* 单冒号和双冒号的区别
+    1、低版本只支持单冒号
+    2、CSS3规范 单冒号表示伪类，双冒号表示伪元素
+*/
+.product-box.active::before{
+    content: "\e915";
+    position: absolute;
+    left: 0;
+    top: -7px;
+    /*设置使用字体，否则会变成微软雅黑就没图标了*/
+    font-family: wjs;
+    font-size: 33px;
+}
+
+.product-box .pro_left{
+    overflow: hidden;
+}
+.product-box .pro_left h3{
+    font-size: 16px;
+    margin-top: 10px;
+}
+.product-box .pro_left div{
+    font-size: 10px;
+}
+.product-box .pro_right{
+    float: right;
+    width: 80px;
+    height: 150px;
+    text-align: center;
+    border-left: 1px dashed #ccc;
+    position: relative;
+}
+
+
+/*!*半圆实现原理，使用伪元素圆球覆盖*!*/
+.product-box .pro_right::before,
+.product-box .pro_right::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 6px;
+    background: #f5f5f5;
+    /*移动元素的半径*/
+    left:-6px;
+}
+.product-box .pro_right::before{
+    top:-6px;
+    /* 1、X轴偏移量
+           2、Y轴偏移量
+           3、阴影浓度
+           4、阴影的延伸度
+           4、颜色
+           5、是否内阴影
+
+     */
+    /*box-shadow: 0 -2px 2px  10px #d8d8d8; inset;*/
+    box-shadow: 0 -2px 2px   #d8d8d8 inset;
+}
+.product-box .pro_right::after{
+     bottom: -6px;
+     box-shadow: 0 2px 2px   #d8d8d8 inset;
+ }
+.product-box .pro_right .tips{
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+
+}
+.product-box .pro_right .tips span{
+    display:inline-block;
+    width: 17px;
+    height: 17px;
+    text-align: center;
+    line-height: 16px;
+    border-width: 1px;
+    border-style: solid;
+
+ }
+.product-box .pro_right .tips  .red{
+    color:red;
+    border-color: red;
+}
+.product-box .pro_right .tips  .green{
+    color:green;
+    border-color: green;
+}
+
+
+/* 元素类型选择器
+    p:first-of-type
+    p:last-of-type
+    p:nth-of-type(n)
+    p:nth-last-of-type(n)
+    查找逻辑
+    1、找到P元素
+    2、通过P找到父元素
+    3、通过父元素，找到子元素中类型为P的所有元素
+    4、根据N和前缀查找具体的元素
+
+
+    p:first-child
+    查找逻辑
+    1、找到P元素
+    2、通过P找到父元素
+    3、通过父元素，查找所有的子元素
+    4、根据N和前缀查找具体的元素，然后匹配找到的元素是不是p类型，
+          如果不是P就是无效选择器
+
+
+*/
+.product-box .pro_right p:first-of-type{
+    margin-top: 25px;
+}
+
+.product-box .pro_right p:first-of-type b{
+    font-size: 48px;
+    color:#e92322;
+}
+.product-box.active .pro_right p:first-of-type b {
+    color: #fff;
+
+}
+.product-box .pro_right p:first-of-type sub{
+    bottom: 0;
+    font-size: 12px;
+}
+.product-box .pro_right p:last-of-type{
+
+}
 /*产品模块 end*/
