@@ -1,0 +1,48 @@
+{
+    "files.autoSave": "afterDelay",
+    "files.associations": {
+        "*.cjson": "jsonc",
+        "*.wxss": "css",
+        "*.wxs": "javascript"
+    },
+    "editor.fontFamily": "Verdana,Consolas, 'Courier New', monospace",
+    
+    "emmet.includeLanguages": {
+        "wxml": "html"
+    },
+    "workbench.editor.enablePreview": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.colorCustomizations": {
+        "[Visual Studio Light]": {
+            "editor.background":"#C7EDCC", 
+            "sideBar.background": "#F0F0F0", 
+            "activityBar.background": "#658669",  
+            "terminal.background": "#000",
+            "terminal.foreground": "#15bb1e"
+            
+
+        },
+    
+    },
+  
+
+    "workbench.iconTheme": "vscode-great-icons",
+"git.ignoredRepositories": [
+    "g"
+],
+"terminal.integrated.fontFamily": "Consolas, 'Courier New', monospace",
+"terminal.integrated.fontSize": 14,
+"editor.multiCursorModifier": "alt",
+"breadcrumbs.enabled": true,
+"editor.renderLineHighlight": "all",
+"workbench.activityBar.visible": true,
+"emmet.triggerExpansionOnTab": true,
+"editor.matchBrackets": false,
+
+"subtleBrackets.style": {
+    "borderColor": "red",
+    "borderWidth": "4px"
+},
+"workbench.colorTheme": "Visual Studio Light"
+
+}
