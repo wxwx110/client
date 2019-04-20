@@ -192,12 +192,20 @@ a:hover{
     但是有一些没用到的选择器，可能出现代码冗余
     建议可以保留方便后续修改。
 */
-.wjs_nav {   
+.wjs_nav {
     margin-bottom: 0;
     border-color: #e7e7e7;
     border:none;
     border-bottom: 1px solid #ccc;
-  }
+    /*配合固定导航样式*/z-index: 9999;
+    background: #fff;
+    width:100%;
+    border-radius:   0;
+    -webkit-border-radius:   0;
+    top:0;
+    left:0;
+   
+}
 
   .wjs_nav .wjs_icon_logo{
     font-size: 50px;
