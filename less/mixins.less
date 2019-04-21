@@ -1,0 +1,60 @@
+@charset "UTF-8";
+/*混入*/
+/*组合样式*/
+.w50{
+  width: 50%;
+}
+.f_left{
+  float: left;
+}
+.f_right{
+  float:right;
+
+}
+
+/*类混入*/
+.w50-f_left{
+  .w50();
+  .f_left();
+}
+/*函数混入*/
+/*函数定义*/
+.with50(){
+  width: 50%;
+}
+.float_left(){
+  float:left
+}
+.float_right(){
+  float:left
+}
+.width50-f_left{
+  .with50();
+  .float_left()
+}
+/*定义包含参数的函数*/
+@d_left:left;
+//定义默认值right;
+.f(@direction:right){
+  float: @direction;
+}
+//处理兼容性问题
+.border-radius (@width:100px){
+  border-radius: @width;
+  -webkit-border-radius: @width;
+  -moz-border-radius: @width;
+}
+
+.w50_left{
+  .with50();
+  .f(@d_left);
+}
+.w50_left2{
+  .with50();
+  .f(left);
+}
+.w50_right{
+  .with50();
+  .f();
+  .border-radius();
+}
