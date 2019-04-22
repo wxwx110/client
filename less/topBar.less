@@ -1,0 +1,43 @@
+@charset "UTF-8";
+/*原样式*/
+.wjs_app{
+  display: block;
+}
+.wjs_app img{
+  display: none;
+}
+.wjs_app:hover img{
+  display: block;
+  position: absolute;
+  /* 左移50 */
+  left:50%;
+  /* 图片宽度的一半 */
+  margin-left:-60px;
+  border-top:none;
+  z-index: 1000;
+}
+/*嵌套样式*/
+.wjs_app{
+  display: block;
+  img{
+    display: none;
+  }
+  //需要连接时使用&符号，写伪类和伪元素
+  &:hover {
+    img {
+      display: block;
+
+      position: absolute;
+      /* 左移50 */
+      left: 50%;
+      /* 图片宽度的一半 */
+      margin-left: -60px;
+      border-top: none;
+      z-index: 1000;
+    }
+
+  }
+  > div{
+    display: inline;
+  }
+}
