@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Document</title>
+    <style>
+        /*html{*/
+        /*    font-size: 50px;*/
+        /*}*/
+        /*假设的设备*/
+        @media (min-width: 320px) {
+            html{
+                font-size: 50px;
+            }
+        }
+        @media (min-width: 414px) {
+            html{
+                font-size: 100/640*414;
+            }
+        }
+        @media (min-width: 640px) {
+            html{
+                font-size: 100px;
+            }
+        }
+        body{
+            margin: 0;
+            padding: 0;
+        }
+    /*    流式容器*/
+    /*    header{*/
+    /*        width: 100%;*/
+    /*        height: 50px;*/
+    /*        line-height: 50px;*/
+    /*        font-size: 16px;*/
+    /*        text-align: center;*/
+    /*        background: green;*/
+    /*        color: #fff;*/
+    /*    }*/
+
+    /*
+        rem 响应式布局
+        基于640PX宽度设计稿
+        100px基准
+    */
+
+        header{
+            width: 100%;
+            height: 1rem;
+            line-height: 1rem;
+            font-size: 0.32rem;
+            text-align: center;
+            background: green;
+            color: #fff;
+
+        }
+    </style>
+</head>
+<body>
+<!--移动端适配布局方案-->
+<!--1、伸缩布局 flex-->
+<!--2、流式布局  百分比-->
+<!--3、响应式布局  媒体查询 （超小屏设备，流式布局）-->
+<!--共同点：元素只能做宽度的适配（排除图片）高度由内容撑开-->
+<!-- 4、适配方案rem：宽度和高度都能适配 -等比缩放-->
+<!--       通过控制html闪的字体大小，去控制页面上所有以REM为单位i的基准值 -->
+<!--     1、页面上的px单位变成rem单位-->
+<!--     2、页面制作时psd上的单位转成rem使用    -->
+<!--     3、需要先预设一个基准值方便计算 例如100px-->
+<!--     4、适配的时候，设置基准值 例如：320PX宽度，基准值50px 那么630px宽度就是100px基准值-->
+<!--     5、换算公式 rem基准值= （预设基准值/设计稿宽度） * 当前设备的宽度-->
+<!--     6、怎么改变基准（js换算，媒体查询）-->
+<header>
+    购物车
+</header>
+
+</body>
+</html>
