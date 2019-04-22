@@ -1,0 +1,203 @@
+@charset "UTF-8";
+/*变量*/
+/*
+   reset css
+   */
+*,
+*::before,
+*::after {
+  /* 所有标签和 伪类 */
+  margin: 0;
+  padding: 0;
+  /* 定义盒子宽度从边框记算
+        1、当改变盒子宽度时不需要考虑padding和内容
+    */
+  box-sizing: border-box;
+  /* 增加内核前缀保证兼容性 */
+  -webkit-box-sizing: border-box;
+  /* 点击高亮效果的清除  点击会会出现控件灰色的遮罩效果*/
+  -webkit-tap-highlight-color: transparent;
+}
+body {
+  font-size: 14px;
+  /*  sans-serif 手机端自带字体*/
+  font-family: "Microsoft YaHei", sans-serif;
+  color: #333;
+}
+ul,
+ol {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
+input,
+textarea {
+  /* 元素边框可能在不同浏览器下显示效果会不同 */
+  border: none;
+  /* 元素轮廓 */
+  outline: none;
+  /* 不允许放大缩小操作 */
+  resize: none;
+  /* 定义元素外观
+        none：没有任何样式
+        各种特色效果，和外观的特色样式都干掉
+
+    */
+  -webkit-appearance: none;
+}
+/*
+  common css
+*/
+.f_left {
+  float: left;
+}
+.f_right {
+  float: right;
+}
+.clearFix::before,
+.clearFix::after {
+  content: "";
+  /* 占位 */
+  display: block;
+  /* 不可视 */
+  visibility: hidden;
+  /* 高度为0 */
+  height: 0;
+  /* 行内高度 */
+  line-height: 0;
+  clear: both;
+}
+.m_l10 {
+  margin-left: 10px;
+}
+.m_r10 {
+  margin-right: 10px;
+}
+.m_t10 {
+  margin-top: 10px;
+}
+.m_b10 {
+  margin-bottom: 10px;
+}
+/* 使用精灵图的公共样式 */
+/*以icon_开头*/
+[class^="icon_"],
+[class*=" icon_"] {
+  background-repeat: no-repeat;
+  background-image: url("../images/sprites.png");
+  background-size: 200px 200px;
+}
+/*适配*/
+@media (min-width: 320px) {
+  html {
+    font-size: 42.66666667px;
+  }
+}
+@media (min-width: 360px) {
+  html {
+    font-size: 48px;
+  }
+}
+@media (min-width: 375px) {
+  html {
+    font-size: 50px;
+  }
+}
+@media (min-width: 384px) {
+  html {
+    font-size: 51.2px;
+  }
+}
+@media (min-width: 400px) {
+  html {
+    font-size: 53.33333333px;
+  }
+}
+@media (min-width: 414px) {
+  html {
+    font-size: 55.2px;
+  }
+}
+@media (min-width: 424px) {
+  html {
+    font-size: 56.53333333px;
+  }
+}
+@media (min-width: 480px) {
+  html {
+    font-size: 64px;
+  }
+}
+@media (min-width: 540px) {
+  html {
+    font-size: 72px;
+  }
+}
+@media (min-width: 640px) {
+  html {
+    font-size: 85.33333333px;
+  }
+}
+@media (min-width: 720px) {
+  html {
+    font-size: 96px;
+  }
+}
+@media (min-width: 750px) {
+  html {
+    font-size: 100px;
+  }
+}
+.sn_topBar {
+  width: 100%;
+  height: 0.9rem;
+  background: #fabc09;
+}
+.sn_topBar a {
+  position: absolute;
+  top: 0;
+  width: 0.9rem;
+  height: 0.9rem;
+}
+.sn_topBar .icon_category {
+  left: 0;
+  background: url("../images/icon_category.png") no-repeat center / 0.44rem 0.7rem;
+}
+.sn_topBar .icon_cart {
+  right: 0;
+  background: url("../images/icon_cart.png") no-repeat center / 0.63rem 0.68rem;
+}
+.sn_topBar form {
+  width: 100%;
+  padding: 0 0.9rem;
+}
+.sn_topBar form .icon_search {
+  width: 0.3rem;
+  height: 0.3rem;
+  position: absolute;
+  left: 1rem;
+  top: 0.3rem;
+  background: url("../images/icon_search.png") no-repeat center / 0.27rem 0.28rem;
+}
+.sn_topBar form input {
+  width: 100%;
+  height: 0.6rem;
+  margin-top: 0.15rem;
+  border-radius: 0.05rem;
+  background: rgba(255, 255, 255, 0.3);
+  font-size: 0.24rem;
+  padding-left: 0.5rem;
+}
+/*版心*/
+.sn_container {
+  position: relative;
+  width: 100%;
+  max-width: 750px;
+  min-width: 320px;
+  margin: 0 auto;
+  height: 500px;
+}
+/*rem适配方案不好维护、设备更新较快，设备尺寸，预设rem基准，设计稿尺寸*/
+/*# sourceMappingURL=index.css.map */

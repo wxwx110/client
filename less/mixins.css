@@ -1,0 +1,40 @@
+@charset "UTF-8";
+/*混入*/
+/*组合样式*/
+.w50 {
+  width: 50%;
+}
+.f_left {
+  float: left;
+}
+.f_right {
+  float: right;
+}
+/*类混入*/
+.w50-f_left {
+  width: 50%;
+  float: left;
+}
+/*函数混入*/
+/*函数定义*/
+.width50-f_left {
+  width: 50%;
+  float: left;
+}
+/*定义包含参数的函数*/
+.w50_left {
+  width: 50%;
+  float: left;
+}
+.w50_left2 {
+  width: 50%;
+  float: left;
+}
+.w50_right {
+  width: 50%;
+  float: right;
+  border-radius: 100px;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+}
+/*# sourceMappingURL=mixins.css.map */
