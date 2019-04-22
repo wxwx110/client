@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/less" href="less/test.less">
+    <script src="less/less.js"></script>
+    <script>
+<!--        可以监听LESS变化自动刷新网页，但是感觉比较坑。-->
+        less.watch();
+    </script>
+</head>
+<body>
+<H3>在浏览器端使用less</H3>
+<p>1、less不能直接在浏览器端使用，浏览器不能识别 </p>
+<p>2、引入less解析工具less.js</p>
+<p>3、link 标签添加type=text/less</p>
+<p>原理是的通过ajax获取less文件，因此需要http形式打开文件</p>
+</body>
+</html>
