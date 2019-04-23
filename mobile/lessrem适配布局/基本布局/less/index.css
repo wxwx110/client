@@ -258,6 +258,36 @@ textarea {
   font-size: 0.2rem;
   padding: 0.05rem;
 }
+.sn_tabs {
+  width: 100%;
+  height: 1rem;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  border-top: 1px solid #ccc;
+}
+.sn_tabs ul {
+  width: 100%;
+}
+.sn_tabs ul li {
+  width: 20%;
+  float: left;
+  padding-top: 0.1rem;
+}
+.sn_tabs ul li a {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
+.sn_tabs ul li a span {
+  font-size: 0.4rem;
+}
+.sn_tabs ul li a p {
+  padding-top: 0.1rem;
+  font-size: 0.2rem;
+  color: #666;
+}
 /*版心*/
 .sn_container {
   position: relative;
@@ -265,8 +295,8 @@ textarea {
   max-width: 750px;
   min-width: 320px;
   margin: 0 auto;
-  height: 500px;
   padding-top: 0.9rem;
+  padding-bottom: 1rem;
 }
 /*rem适配方案不好维护、设备更新较快，设备尺寸，预设rem基准，设计稿尺寸*/
 /*# sourceMappingURL=index.css.map */

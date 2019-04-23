@@ -1,0 +1,14 @@
+//sass有循环语句
+//less智能使用递归模拟for
+//根据数组长度停止当前循环
+//需要通过序号判断 @index从1开始
+.adapterMixin(@index) when(@index>0){
+   @media(min-width: extract(@adapterDeviceList,@index) ){
+       html{
+           font-size :@baseFontSize/@psdWidth * extract(@adapterDeviceList,@index)
+       }
+   }
+
+    //注意减法和变量之间需要有空格
+    .adapterMixin(@index - 1);
+}

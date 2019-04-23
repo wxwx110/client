@@ -1,0 +1,38 @@
+.sn_banner {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.sn_banner ul:first-child {
+  width: 1000%;
+  transform: translateX(-10%);
+  -webkit-transform: translateX(-10%);
+}
+.sn_banner ul:first-child li {
+  width: 10%;
+  float: left;
+}
+.sn_banner ul:first-child li a {
+  display: block;
+  width: 100%;
+}
+.sn_banner ul:first-child li a img {
+  display: block;
+  width: 100%;
+}
+.sn_banner ul:last-child {
+  position: absolute;
+  right: 0.2rem;
+  bottom: 0.2rem;
+}
+.sn_banner ul:last-child li {
+  margin-left: 0.12rem;
+  width: 0.12rem;
+  height: 0.12rem;
+  border-radius: 50%;
+  float: left;
+  background: #fff;
+}
+.sn_banner ul:last-child li.now {
+  background: #000;
+}
