@@ -167,11 +167,11 @@ textarea {
 }
 .sn_topBar .icon_category {
   left: 0;
-  background: url("../images/icon_category.png") no-repeat center / 0.44rem 0.7rem;
+  background: url("../../../images/icon_category.png") no-repeat center / 0.44rem 0.7rem;
 }
 .sn_topBar .icon_cart {
   right: 0;
-  background: url("../images/icon_cart.png") no-repeat center / 0.63rem 0.68rem;
+  background: url("../../../images/icon_cart.png") no-repeat center / 0.63rem 0.68rem;
 }
 .sn_topBar form {
   width: 100%;
@@ -183,7 +183,7 @@ textarea {
   position: absolute;
   left: 1rem;
   top: 0.3rem;
-  background: url("../images/icon_search.png") no-repeat center / 0.27rem 0.28rem;
+  background: url("../../../images/icon_search.png") no-repeat center / 0.27rem 0.28rem;
 }
 .sn_topBar form input {
   width: 100%;

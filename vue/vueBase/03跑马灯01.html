@@ -24,7 +24,7 @@
             methods:{
                 lang(){
                     //如果定时器已经存在则不要重复开启
-                   if(this.intervalId==null){
+                   if(this.intervalId!=null){
                        return;
                    }
                     //使用箭头函数后this指向外部的VM
@@ -34,9 +34,10 @@
                         //VM实例中线稿获取data的数据或者其他资源，必须使用this this表示VM对象
                     var start=this.msg.substring(0,1);
                     var end=this.msg.substring(1);
+                   
                     //vue会监听Data数据的改变，并自动刷新DOM
                     this.msg=end+start; 
-                  }, 400);
+                  }, 1000);
 
                 },
                 stopLang(){
