@@ -27,7 +27,7 @@
        <h1 :class="['red' ,'thin']">这是一个H1</h1>
        <h1 :class="['red' ,'thin',flag?'active':'']">这是一个H1</h1>
        <h1 :class="['red' ,'thin',{active:flag}]">这是一个H1</h1>
-       <h1 :class="{red:flag,'thin':flag,active:false}">这是一个H1</h1>
+       <h1 :class="{red:flag==false,'thin':flag,active:false}">这是一个H1</h1>
        <h1 :class="classObj">这是一个H1</h1>
     </div>
     <script>
